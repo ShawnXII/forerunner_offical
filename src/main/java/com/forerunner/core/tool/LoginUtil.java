@@ -154,7 +154,7 @@ public class LoginUtil {
 			account.setEnablead(true);
 			//帐号锁定
 			AccountService accountFacadeService=SpringUtils.getBean("accountService");
-			Account acc=accountFacadeService.save(account);
+			Account acc=accountFacadeService.saveOrUpdate(account);
 			//记录日志			
 			//把用户资料从redis中删除
 //			if(redisService.exists(acc.getId())){
