@@ -1,0 +1,187 @@
+.footer{
+	width: 100%;
+	float:left;
+	background-color: #f8f8f8;
+}
+
+.footer_t{
+	width:1200px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.footer_t_l{
+	float: left;
+	width:500px;
+}
+
+.footer_t_title{
+	width:153px;
+	text-align:left;
+	color: #494949;
+	font-size: 18px;
+	font-family: "Microsoft Yahei";
+}
+
+.footer_t_l_dis{
+	width:100%;
+	float:left;
+	margin-top: 15px;
+}
+
+.footer_t_l_dis span{
+	float: left;
+}
+
+.footer_t_l_disImg{
+	width:28px;
+	height:28px;
+	background:url(/static/resources/images/img1.0/official/mhl_gw.png) -10px -821px no-repeat;
+}
+
+.footer_t_l_disImg1{
+	width:29px;
+	background-position: -59px -821px;
+}
+
+.footer_t_l_disImg2{
+	width:24px;
+	height:28px;
+	background-position: -111px -821px;
+}
+
+.footer_t_l_disImg3{
+	width:24px;
+	height:30px;
+	background-position: -158px -820px;
+}
+
+.footer_t_l_disText{
+	color: #4d4d4d;
+	font-size: 15px;
+	font-family:"Microsoft Yahei";
+	margin:5px 0 0 10px;
+}
+
+.footer_t_r{
+	width:400px;
+	float: right;
+}
+
+.footer_t_r_l{
+	float: left;
+}
+
+.footer_t_r_r{
+	float: right;
+}
+
+.footer_t_r_code{
+	width: 152px;
+	height: 152px;
+	margin-top:13px;
+	padding: 3px;
+	background:url(/static/resources/images/img1.0/official/mhl_gw.png) -20px -869px no-repeat; 
+}
+
+.footer_t_r_code1{
+	background-position: -196px -869px;
+}
+
+.footer_b{
+	float:left;
+	width: 100%;
+	border-top:1px solid #e5e5e5;
+	margin-top: 20px;
+}
+
+.footer_b ul{
+	width: 1200px;
+	margin:0 auto;
+	padding:16px 0;
+	text-align: center;
+	font-size: 14px;
+}
+
+.footer_b ul li a{
+	color: #4f4f4f;
+	cursor: pointer;
+}
+
+.footer_b_t{
+	color: #4f4f4f;
+}
+
+.footer_b_t a{
+	color: #4f4f4f;
+	text-decoration: none;
+}
+
+.footer_b_t a:hover{
+	color:#0080cc;
+}
+
+.footer_b_t span{
+	margin: 0 6px;
+}
+
+.footer_b_b{
+	
+	color:#4f4f4f;
+	font-size:12px;
+	margin-top: 12px;
+}
+
+/*新增友情链接 begin*/
+.footer_c{
+	width: 100%;
+	border-top:1px solid #e5e5e5;
+	margin-top: 39px;
+	display: none;
+}
+
+.footer_friendship{
+	width: 1200px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+.friendship_l{
+	float: left;
+	line-height: 30px;
+	margin-right: 23px;
+	color: #494949;
+	font-size: 18px;
+	font-family: "Microsoft Yahei";
+}
+
+.friendship_r{
+	float: left;
+	width: 1100px;
+}
+
+.friendship_r a{
+	margin: 0 25px 0 0;
+	line-height: 30px;
+	cursor: pointer;
+	color: #666666;
+	font-size: 14px;
+	font-family: "Microsoft Yahei";
+}
+
+.friendship_r a:hover{
+	color: #0080cc;
+	text-decoration: none;
+}
+/*新增友情链接 end*/
+@media screen and (max-width:1200px){
+	.footer{
+		width:1200px;
+	}
+	
+	.footer_b{
+		width:1200px;
+	}
+}
+
+

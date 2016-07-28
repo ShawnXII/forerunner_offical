@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>卖货郎官网-国内第一网购下乡农村电商服务平台</title>
+<!--:include('/WEB-INF/views/common/commhead.html'){} -->
+</head>
+<body>
+	
+	<div class="box">
+		<!--:include('/WEB-INF/views/common/head.html'){} -->
+		<div class="allCon">
+			<!-- 大的轮播图 -->
+			<div class="floor_detail_r_r mt" id="flooer1">
+				<div class="img-swith-main_1 mb">
+					<div class="img-switch_1">
+						<ul class="slide-img-switch_ul">
+							<!--:if(!isEmpty(slideList)){
+								for(slide in slideList){
+								var index=slideLP.index;
+								-->
+								<li style="${slideLP.first?'display: list-item;':'display: none;'}">
+									<a href="${slide.url}" target="${slide.target}" class="floor_detail_a_3" title="${slide.title}">
+										<img alt="${slide.title}" src="${slide.path}" />
+									</a>
+								</li>									
+							<!--:}
+							}  -->
+						</ul>
+					</div>
+
+					<div class="img-switch-index_1 round-switch">
+						<ul class="slide-img-switch_ul_btn">
+							<!--:if(!isEmpty(slideList)){
+								for(slide in slideList){-->
+								<li class="${slideLP.first?'img_select_1':'img_unselect_1'}"></li>
+							   <!--:}
+							}  -->		
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 货郎新闻头部-->
+			<div class="data_title">
+				<div class="data_title_text">新闻动态</div>
+				<div class="data_title_img"></div>
+			</div>
+			<div class="clear"></div>
+			<!-- 货郎新闻内容-->
+			<div class="new_con">
+				<!--左边轮播图 -->
+				<div class="floor_detail_r_r mt" >
+					<div class="img-swith-main_1">
+						<div class="img-switch_1">
+							<ul class="news-img-switch_ul">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="new_con_r">
+					<a class="more" href="/news">更多<span>></span></a>
+					<!--:if(!isEmpty(newsList)){
+					for(art in newsList){-->
+						<ul>
+							<li class="new_con_r_l">
+								<div class="day1">${strutil.formatDate(art.createTime,'d')}</div>
+								<div class="day2">${strutil.formatDate(art.createTime,'yyyy-MM')}</div>
+							</li>
+							<li class="new_con_r_r">
+								<div class="title">
+									<a target="_blank"  href="${art.link!'/news/'+art.id+'.htm'}" title="${art.title}">${art.title!}</a>
+								</div>
+								<div class="title">
+									<a target="_blank"  href="${art.link!'/news/'+art.id+'.htm'}" title="${art.title}">${art.description!}</a>
+								</div>
+							</li>
+						</ul>
+					<!--:}
+					}  -->		
+				</div>
+			</div>
+
+			<div class="clear"></div>
+			
+			
+			<!--货朗故事、加盟合作、农村创业-->
+			 
+
+			<!-- 货郎在农村-->
+			 <div class="data_title data_titleMt">
+				<div class="data_title_text">货郎在农村</div>
+				<div class="data_title_img data_title_img2"></div>
+			</div>
+			<!-- 货郎在农村轮播图-->
+			<div class="floor_detail_r_r mt" id="flooer3">
+				<div class="img-swith-main_1">
+					<div class="img-switch_1">
+						<ul>
+
+							<li style="display: list-item;"><a
+								href="/view/goods/index.shtml?id=117492" target="_blank"
+								class="floor_detail_a_3"> <img alt="菲星智能手表S12  支持联通移动卡（小卡）"
+									src="${ctxStatic!}/resources/images/img1.0/official/off_bg01.jpg"></a>
+							</li>
+
+							<li style="display: none;"><a href="#" target="_blank"
+								class="floor_detail_a_3"> <img
+									alt="苹果ipad air保护套超薄ipadair平板电脑保护壳6休眠ipad5皮套"
+									src="${ctxStatic!}/resources/images/img1.0/official/off_bg02.jpg">
+							</a></li>
+
+
+							<li style="display: none;"><a
+								href="/view/goods/index.shtml?id=121047" target="_blank"
+								class="floor_detail_a_3"> <img
+									alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+									src="${ctxStatic!}/resources/images/img1.0/official/off_bg01.jpg"
+									class="floor_detail_a_1_img2">
+							</a></li>
+
+							<li style="display: none;"><a
+								href="/view/goods/index.shtml?id=121047" target="_blank"
+								class="floor_detail_a_3"> <img
+									alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+									src="${ctxStatic!}/resources/images/img1.0/official/off_bg02.jpg"
+									class="floor_detail_a_1_img2">
+							</a></li>
+
+							<li style="display: none;"><a
+								href="/view/goods/index.shtml?id=121047" target="_blank"
+								class="floor_detail_a_3"> <img
+									alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+									src="${ctxStatic!}/resources/images/img1.0/official/off_bg01.jpg"
+									class="floor_detail_a_1_img2">
+							</a></li>
+						</ul>
+					</div>
+
+					<div class="img-switch-index_1" index="3">
+						<ul>
+							<li class="img_select_1"></li>
+							<li class="img_unselect_1"></li>
+							<li class="img_unselect_1"></li>
+							<li class="img_unselect_1"></li>
+							<li class="img_unselect_1"></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="clear"></div>
+			<!-- 运营中心、服务站 -->
+			<div class="index_oper_ser">
+
+				<!-- 左边轮播 -->
+				<div class="index_oper">
+
+					<div class="index_oper_ser_title">
+						<span class="index_oper_ser_text">运营中心</span><span
+							class="index_oper_ser_tpic"></span>
+					</div>
+
+					<div class="floor_detail_r_r mt" id="flooer4">
+						<div class="img-swith-main_1">
+							<div class="img-switch_1">
+								<ul>
+
+									<li style="display: list-item;"><a
+										href="/view/goods/index.shtml?id=117492" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="菲星智能手表S12  支持联通移动卡（小卡）"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg03.jpg"></a>
+									</li>
+
+									<li style="display: none;"><a href="#" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="苹果ipad air保护套超薄ipadair平板电脑保护壳6休眠ipad5皮套"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg04.jpg">
+									</a></li>
+
+									<li style="display: none;"><a
+										href="/view/goods/index.shtml?id=121047" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg05.jpg"
+											class="floor_detail_a_1_img2">
+									</a></li>
+
+									<li style="display: none;"><a
+										href="/view/goods/index.shtml?id=121047" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg03.jpg"
+											class="floor_detail_a_1_img2">
+									</a></li>
+
+									<li style="display: none;"><a
+										href="/view/goods/index.shtml?id=121047" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg04.jpg"
+											class="floor_detail_a_1_img2">
+									</a></li>
+								</ul>
+							</div>
+
+							<div class="img-switch-index_1" index="4">
+								<ul>
+									<li class="img_select_1"></li>
+									<li class="img_unselect_1"></li>
+									<li class="img_unselect_1"></li>
+									<li class="img_unselect_1"></li>
+									<li class="img_unselect_1"></li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+				<!-- 右边轮播 -->
+				<div class="index_ser">
+
+					<div class="index_oper_ser_title">
+						<span class="index_oper_ser_text">明星服务站</span><span
+							class="index_oper_ser_tpic index_oper_ser_tpicSer"></span>
+					</div>
+
+					<div class="floor_detail_r_r mt" id="flooer5">
+						<div class="img-swith-main_1">
+							<div class="img-switch_1">
+								<ul>
+
+									<li style="display: list-item;"><a
+										href="/view/goods/index.shtml?id=117492" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="菲星智能手表S12  支持联通移动卡（小卡）"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg05.jpg"></a>
+									</li>
+
+									<li style="display: none;"><a href="#" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="苹果ipad air保护套超薄ipadair平板电脑保护壳6休眠ipad5皮套"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg03.jpg">
+									</a></li>
+
+									<li style="display: none;"><a
+										href="/view/goods/index.shtml?id=121047" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg04.jpg"
+											class="floor_detail_a_1_img2">
+									</a></li>
+
+									<li style="display: none;"><a
+										href="/view/goods/index.shtml?id=121047" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg05.jpg"
+											class="floor_detail_a_1_img2">
+									</a></li>
+
+									<li style="display: none;"><a
+										href="/view/goods/index.shtml?id=121047" target="_blank"
+										class="floor_detail_a_3"> <img
+											alt="联想(Lenovo) Yoga11S 11.6英寸 I5-3339Y 4G 核显 Win8 橙色"
+											src="${ctxStatic!}/resources/images/img1.0/official/off_bg03.jpg"
+											class="floor_detail_a_1_img2">
+									</a></li>
+								</ul>
+							</div>
+
+							<div class="img-switch-index_1" index="5">
+								<ul>
+									<li class="img_select_1"></li>
+									<li class="img_unselect_1"></li>
+									<li class="img_unselect_1"></li>
+									<li class="img_unselect_1"></li>
+									<li class="img_unselect_1"></li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<!--服务项目-->
+			<div class="data_title data_titleMt">
+				<div class="data_title_text">服务项目</div>
+				<div class="data_title_img data_title_img3"></div>
+			</div>
+
+			<ul class="s_project">
+				<li>
+					<div class="pic"></div>
+					<div class="title">农村电商</div>
+					<div class="con">独创B2C+O2O模式，通过“工业品进村”、“农产品进城”的渠道，为农村提供优质实惠的产品，促进农村济发展，农民自主创业</div>
+				</li>
+
+				<li>
+					<div class="pic pic1"></div>
+					<div class="title">农村金融</div>
+					<div class="con">以信用手段筹集、分配和管理农村货币资金，解决农户以及中小企业“贷款难”以及金融机构“难贷款”的问题</div>
+				</li>
+
+				<li>
+					<div class="pic pic2"></div>
+					<div class="title">乡间物流</div>
+					<div class="con">针对落后偏僻的农村地区，由当地运营中心组建物流配送小队，建立自成一体的物流体系，解决农村物流“最后一公里”</div>
+				</li>
+
+				<li class="last">
+					<div class="pic pic3"></div>
+					<div class="title">便民服务</div>
+					<div class="con">平台不仅融合B2C在线购物、金融服务、农村创业，还将打造成为提供本地分类信息、手机充值、宽带缴费、就诊预约等多种服务的便民平台。</div>
+				</li>
+			</ul>
+
+			<!--全作伙伴-->
+			<div class="data_title data_titleMt">
+				<div class="data_title_text">合作伙伴</div>
+				<div class="data_title_img data_title_img4"></div>
+			</div>
+
+			<div class="partners">
+				<div class="img img1" title="中国银联"></div>
+				<div class="img img2" title="中原银行"></div>
+				<div class="img img3" title="中国建设银行"></div>
+				<div class="img img4" title="华夏银行"></div>
+				<div class="img img5 last" title="快钱"></div>
+			</div>
+			
+			<div class="partners partners1">
+				<div class="img img6" title="SAMSUNG(三星)"></div>
+				<div class="img img7" title="KONKA(康佳)"></div>
+				<div class="img img8" title="Hisense(海信集团)"></div>
+				<div class="img img9" title="TCL"></div>
+				<div class="img img10 last" title="优米"></div>
+			</div>
+
+
+		</div>
+	<div class="index_footer">
+		<!--:include('/WEB-INF/views/common/footer.html'){} -->
+	</div>	
+	</div>
+	<div class="backTop">
+		<a onclick="goto_top()"> <span class="backTop_1"></span> <span
+			class="backTop_2"></span>
+		</a>
+	</div>
+</body>
+</html>

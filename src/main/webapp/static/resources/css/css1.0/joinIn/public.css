@@ -1,0 +1,30 @@
+﻿﻿@charset "utf-8";
+/* CSS Document default*/
+
+
+/*主要内容*/
+
+.main{ width:1200px; margin-left:auto; margin-right:auto; clear:both;}
+
+/*招商页面*/
+.index2_zs { width:100%; float:left; background:#fff; text-align:center;}
+.index2_zs2 { width:100%; float:left; background: url(/static/resources/images/img1.0/joinIn/zs2_bj.jpg); text-align:center; font-size:0;}
+.index2_zs3 { width:100%; float:left; background:#c5e2ff; text-align:center;}
+.index2_zs4 { width:100%; float:left; background:#fff; text-align:center;}
+.index2_zs4_mm { width:1200px; margin:auto;}
+.index2_zs4_kk { width:1200px; margin:auto;}
+.index2_zs4_kk ul{ width:1200px; float:left;}
+.index2_zs4_kk li { width:570px; float:left; margin-left:20px; margin-top:20px; height:310px;}
+.index2_zs4_kk li .tt { width:570px; float:left;}
+.index2_zs4_kk li .zi { width:550px; float:left; padding:10px; font-size:14px; line-height:20px; text-align:left; background:#eeeeee; height:90px;}
+.index2_zs4_kk li .pic { width:570px; float:left; background:#eeeeee;}
+.index2_zs4_kk li .pic img{ width:128px; height:117px; float:left; padding-top:10px; padding-left:10px; padding-bottom:10px;}
+.index2_zs5 { width:100%; float:left; background:#eeeeee; text-align:center; margin-top:20px; font-size:0;}
+.index2_zs6 { width:100%; float:left; background:#fff; text-align:center; margin-top:20px;}
+.index2_zs6_mm { width:1200px; margin:auto;}
+.index2_zs6_left { float:left; padding-left:153px;}
+.index2_zs6_right { float:left; padding-left:247px; width:220px; text-align:center;}
+.index2_zs7 { width:100%; float:left; background:#eaf9ff; text-align:center;}
+
+
+

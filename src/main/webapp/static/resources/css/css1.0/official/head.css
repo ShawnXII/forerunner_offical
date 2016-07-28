@@ -1,0 +1,138 @@
+/*头部搜索区域*/
+.head_search{
+	width: 1200px;
+	margin:13px auto 0;
+	height: 87px;
+}
+
+.head_logo{
+float: left;
+	width: 476px;
+	height: 67px;
+	background:url(/static/resources/images/img1.0/official/mhl_gw.png) -2px -62px no-repeat;
+	cursor: pointer;
+
+}
+
+.head_searchCon{
+	float: right;
+	margin-top:10px;
+}
+
+.head_in{
+	float:left;
+	width: 359px;
+	height:40px;
+	line-height:40px;
+	border: 1px solid #dbdbdb;	
+	border-radius:5px 0 0 5px;
+	-moz-border-radius:5px 0 0 5px;
+	-webkit-border-radius:5px 0 0 5px;
+	text-indent: 5px;
+	-moz-box-shadow:3px 3px 3px #f5f5f5 inset;              
+    -webkit-box-shadow:3px 3px 3px #f5f5f5 inset;           
+    box-shadow:3px 3px 3px #f5f5f5 inset;
+}
+
+.head_searchBtn{
+	float: left;
+	display:block;
+	width:42px;
+	height:44px;
+	background-color: #0080cc;
+	border-radius:0 5px 5px 0;
+	-moz-border-radius:0 5px 5px 0;
+	-webkit-border-radius:0 5px 5px 0;
+	cursor: pointer;
+}
+
+.head_searchBtn:hover{
+	background-color: #0072b7;
+}
+
+.head_searchBtn span{
+	width:20px;
+	height:21px;
+	display: block;
+	background:url(/static/resources/images/img1.0/official/mhl_gw.png) -306px -1px no-repeat;
+	margin:10px auto;	
+}
+
+/*导航区域*/
+.head_bar{
+	width: 100%;
+	height: 43px;
+	/* background-color:#0083d0; */
+
+/* 	border-bottom:1px solid #016baa;
+	background-image: -moz-linear-gradient(top, #0085d4, #0080cc); Firefox
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0085d4), color-stop(1, #0080cc)); Saf4+, Chrome
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0085d4', endColorstr='#0080cc', GradientType='0'); IE */
+	background: url(/static/resources/images/img1.0/official/tp_bg.png) repeat-x;
+	border-top: 1px solid #016baa;
+	border-bottom: 1px solid #016baa;
+}
+
+@media screen and (max-width:1200px){
+	.head_bar{
+		width:1200px;
+	}
+}
+
+.head_bar_con{
+	width: 1200px;
+	height:43px; 
+	margin: 0 auto;
+	position: relative;
+}
+
+.head_bar_con_l{
+	float: left;
+	height:43px;
+	line-height: 43px;
+}
+
+.head_bar_con_l a{
+  float: left;
+  width:102px;
+  text-align:center;
+  display:block;
+  color: #ffffff;
+  font-weight:bold;
+  margin-right: 10px;
+}
+
+.head_bar_con_l a.checked,.head_bar_con_l a:hover{
+	text-decoration: none;
+	background-color: #0072b6;
+
+}
+
+.head_bar_con_r{
+	position: absolute;
+	width:140px;
+	height:54px;
+	text-align:center;
+	line-height:54px;
+	top:-10px;
+	right:0;
+}
+
+.head_bar_con_r a{
+	color:#fff;
+	font-size: 16px;
+	font-family:"Microsoft Yahei";
+	display: block;
+	cursor: pointer;
+	background:url(/static/resources/images/img1.0/official/mhl_gw.png) -1px 0px no-repeat;
+} 
+
+.head_bar_con_r a:hover{
+	background-position: -149px 0;
+}
+
+
+
+
+
+

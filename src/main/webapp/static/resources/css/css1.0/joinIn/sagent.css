@@ -1,0 +1,446 @@
+body{margin:0px; background:#ffffff; padding:0px;}
+img{border:0; vertical-align: bottom;}
+.sagent_bj1 {
+	float:left;
+	width:100%;
+	text-align:center;
+	/* background-image: url(../images/agent/opercenter_bj1.jpg); */
+	background-position: center top;
+}
+.sagent_bj2 {
+	float:left;
+	width:100%;
+	text-align:center;
+	background-image: url(../images/agent/opercenter_bj2.jpg);
+	background-position: center top;
+	position: relative;
+}
+
+.sagent_bj2 img,.sagent_bj3 img,.sagent_bj4 img,.sagent_bj5 img{
+	width: 100%;
+	height:auto;
+} 
+
+.sagent_bj2_t1,.sagent_bj2_t2,.sagent_bj2_t3{
+	width:270px;
+	position: absolute;
+	text-align: left;
+	color: #999999;
+	line-height: 20px;
+	font-size: 12px;
+}
+.sagent_bj2_t1{	
+	left: 97px;
+	top:253px;
+}
+
+.sagent_bj2_t2{
+	right: 90px;
+	top: 253px;
+}
+
+.sagent_bj2_t3{
+	width:350px;
+	left:420px;
+	bottom:95px;
+}
+
+.sagent_bj3 {
+	float:left;
+	width:100%;
+	text-align:center;
+/* 	background-image: url(../images/agent/opercenter_bj3.jpg); */
+	background-position: center top;
+	position: relative;
+}
+
+.sagent_bj3_t1,.sagent_bj3_t2,.sagent_bj3_t3,.sagent_bj3_t4{
+	position: absolute;
+	width: 149px;
+	text-align:center;
+	top:290px;
+	font-family: "Microsoft Yahei";	
+}
+
+.sagent_bj3_t1{
+	left: 228px;
+}
+
+.sagent_bj3_t2{
+	left: 427px;
+}
+
+.sagent_bj3_t3{
+	left: 622px;
+}
+
+.sagent_bj3_t4{
+	left:820px;
+}
+
+.sagent_bj3_d1{
+	font-size: 48px;
+	color: #f44444;
+	line-height:40px;
+}
+
+.sagent_bj3_d2{
+	font-size: 15px;
+	color: #0099ff;
+	margin-top:20px;	
+}
+
+.sagent_bj3_d3{
+	width:41px;
+	font-size: 15px;
+	color: #0099ff;
+	margin:50px auto 0;
+	font-size: 24px;
+	color: #666666;	
+	line-height: 28px;
+}
+
+.sagent_bj3_d3 span{
+	color: #f44444;
+}
+
+
+.sagent_bj4 {
+	float:left;
+	width:100%;
+	text-align:center;
+	background-image: url(../images/agent/opercenter_bj4.jpg);
+	background-position: center top;
+	position: relative;
+}
+
+.sagent_bj4_t{
+	position: absolute;
+	bottom:10px;
+	left: 115px;
+	width: 977px;
+	color: #fff;
+	font-size: 12px;
+	text-align:left;
+}
+
+.sagent_bj4_t p{
+	margin:17px 0;
+	color: #fff;
+	line-height: 25px; 
+}
+
+.sagent_bj5 {
+	float:left;
+	width:100%;
+	text-align:center;
+	background-image: url(../images/agent/opercenter_bj5.jpg);
+	background-position: center top;
+	position: relative;
+}
+
+.sagent_bj5_t1,.sagent_bj5_t2,.sagent_bj5_t3,.sagent_bj5_t4{
+	position: absolute;
+	top: 290px;
+	width: 228px;
+	font-family: "Microsoft Yahei";
+}
+
+.sagent_bj5_t1{
+	left: 34px;
+}
+
+.sagent_bj5_t2{
+	left: 332px;
+}
+
+.sagent_bj5_t3{
+	left: 640px;
+}
+
+.sagent_bj5_t4{
+	left: 939px;
+}
+
+.sagent_bj5_d1{
+	text-align: center;
+	color: #ffffff;
+	width:110px;
+	line-height:32px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 25px;
+}
+
+.sagent_bj5_d2{
+	width: 177px;
+	text-align: left;
+	margin:90px auto 0;
+	font-size: 25px;
+	color: #666666;
+	line-height: 30px;
+}
+
+.sagent_bj6 {
+	float:left;
+	width:100%;
+	text-align:center;
+	background-image: url(../images/agent/opercenter_bj6.jpg);
+	background-position: center top;
+	position: relative;
+}
+
+.sagent_bj6_t{
+	width:1200px;
+	position: absolute;
+	left: 0;
+	top: 180px;
+	font-family:"Microsoft Yahei";
+	border: 0;
+}
+
+.sagent_bj6_t th{
+	height: 55px;
+	line-height: 55px;
+	color: #fff;
+	font-size: 25px;
+	font-weight: normal;
+	border: 0;
+}
+
+.sagent_bj6_t td{
+	height:59px;
+	line-height:59px;
+	font-size:20px;
+	color:#999999;
+	border: 0;
+}
+
+.sagent_bj6_t .th1{
+	width: 165px;
+}
+
+.sagent_bj6_t .td1{
+	width: 165px;
+}
+
+.sagent_bj6_t .td2{
+	width:359px;
+	text-align:left;
+	text-indent:100px;
+}
+
+.sagent_bj6_t .td3{
+	width: 335px;
+	text-align:left;
+	text-indent:130px;
+}
+
+.sagent_bj6_t .td4{
+	width: 325x;
+	text-align:left;
+	text-indent:130px;
+}
+
+.sagent_bj6_t .td5{
+	height: 78px;
+	line-height: 78px;
+	text-align: center;
+}
+
+.sagent_bj7 {
+	float:left;
+	width:100%;
+	text-align:center;
+	/* background-image: url(../images/agent/opercenter_bj7.jpg); */
+	background-position: center top;
+	position: relative;
+}
+
+.sagent_bj7_t1,.sagent_bj7_t2,.sagent_bj7_t3,.sagent_bj7_t4,.sagent_bj7_t5{
+	position: absolute;
+	top:495px;
+	width:228px;
+	text-align: center; 
+}
+
+.sagent_bj7_t1{
+	left:21px;
+}
+
+.sagent_bj7_t2{
+	left:254px;	
+}
+
+.sagent_bj7_t3{
+	left:489px;
+}
+
+.sagent_bj7_t4{
+	left:717px;	
+}
+
+.sagent_bj7_t5{
+	left:947px;	
+}
+
+.sagent_bj7_d1{
+	font-size: 18px;
+	font-family: "microsoft Yahei";
+	color: #fff;
+	line-height: 25px;
+}
+
+.sagent_bj7_d2{
+	font-size: 30px;
+	font-family: "microsoft Yahei";
+	font-weight: bold;
+	margin: 10px 0;
+	color: #fff;
+}
+
+
+
+.sagent_bj8 {
+	float:left;
+	width:100%;
+	text-align:center;
+	background-image: url(../images/agent/opercenter_bj8.jpg);
+	background-position: center top;
+}
+.sagent_bj9 {
+	float:left;
+	width:100%;
+	text-align:center;
+	background-image: url(../images/agent/opercenter_bj9.jpg);
+	background-position: center top;
+}
+.sagent_bj10 {
+	float:left;
+	width:100%;
+	text-align:center;
+	background-image: url(../images/agent/opercenter_bj10.jpg);
+	background-position: center top;
+	position: relative;
+}
+
+.sagent_bj10_t{
+	position: absolute;
+	left:50px;
+	bottom:45px;
+	color: #f44444;
+	font-family: "Microsoft Yahei";
+	font-size: 23px;
+	line-height:30px;
+	font-weight: bold;
+}
+
+.sagent_bj10_t span{
+	margin-left:20px;
+}
+
+.sagent_bj11 {
+	width:1200px;
+	margin:auto;
+	background:#ffffff;
+	font-family:"微软雅黑";
+	font-size:24px;
+	color:#666666;
+	line-height:50px;
+}
+.sagent_bj11 ul {
+	list-style:none;
+	padding:0px;
+	margin:0px;
+	overflow: hidden;
+	padding-bottom:20px;
+	font-size: 12px;
+}
+.sagent_bj11 li {
+	list-style:none;
+	padding:0px;
+	margin:0px;
+	padding-left:350px;
+}
+.sagent_bj11 li .left {
+	float:left;
+	text-align:right;
+	width:127px;
+	}
+.sagent_bj11 li input {
+	width:300px;
+	height:40px;
+	line-height:40px;
+	}
+.sagent_bj11 li select {
+	width:150px;
+	height:40px;
+	line-height:40px;
+	margin-right:5px;
+	}
+.sagent_bj11 li .xb{
+	width:20px;
+	height:20px;
+	vertical-align: middle;
+	}
+.sagent_bj11 li textarea {
+	width:300px;
+	line-height:40px;
+	}
+.sagent_bj11 li .anniu_left {
+	float:left;
+	width:88px;
+	height:40px;
+	background:#f44444;
+	line-height:40px;
+	text-align:center;
+	color:#fffff;
+	margin-left:127px;
+	}
+.sagent_bj11 li .anniu_left a{
+	float:left;
+	width:100%;
+	height:40px;
+	background:#f44444;
+	color:#fff;
+	text-decoration:none;
+	text-align:center;
+	line-height:40px;
+	}
+.sagent_bj11 li .anniu_left a:hover{
+	width:88px;
+	height:40px;
+	background:#f44444;
+	color:#fff;
+	text-decoration:none;
+	}
+.sagent_bj11 li .anniu_right{
+	float:left;
+	width:88px;
+	height:40px;
+	background:#eee;
+	line-height:40px;
+	text-align:center;
+	color:#fffff;
+	margin-left:10px;
+	}
+.sagent_bj11 li .anniu_right a{
+	width:88px;
+	height:40px;
+	background:#eee;
+	color:#666;
+	text-decoration:none;
+	}
+	
+.sagent_right {
+	position:absolute;
+	z-index:1000;
+	top:300px;
+	right:120px;}
+	
+	
+
+.b_screen_top{
+	position:fixed;  
+}
+

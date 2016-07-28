@@ -1,0 +1,18 @@
+<!--二级页面左边导航-->
+<ul class="two_leftNav">
+	<li class="two_leftNav_t">栏目导航</li>
+	<li class="two_leftNav_c">
+		 <c:forEach items="${job}" var="data" >
+		 	<c:choose>
+		 		<c:when test="${data.id eq id }">
+		 			<a href="/officer/employment?job_id=${data.id}" class="checked"><span span class="round"></span><span>${data.deptName}</span></a>
+		 		</c:when>
+		 		<c:otherwise>
+		 			<a href="/officer/employment?job_id=${data.id}" ><span span class="round"></span><span>${data.deptName}</span></a>
+		 		</c:otherwise>
+		 	</c:choose>	
+		 </c:forEach>
+	</li>
+</ul>
+
+
