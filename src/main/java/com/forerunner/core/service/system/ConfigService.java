@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import com.forerunner.core.service.BaseService;
 import com.forerunner.foundation.domain.po.system.Config;
 
-@Service
+@Service("configService")
 public class ConfigService extends BaseService<Config, Long>{
 	
 	public List<Config> getSystemConfig(final String classify){

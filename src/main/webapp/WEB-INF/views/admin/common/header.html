@@ -1,0 +1,25 @@
+<div class="header navbar navbar-inverse navbar-fixed-top">
+	<!-- BEGIN TOP NAVIGATION BAR -->
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="/">
+				<img src="${config.resourcePath!}/${config.webLogo!}" alt="${config.corporateName!}" />
+			</a>
+			<ul class="nav pull-right">
+				<li class="dropdown user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img alt="${user.images!config.resourcePath!''+'media/image/avatar1_small.jpg'}" src="${user.images!''}" />
+						<span class="username">${user.nickname!''}</span>
+						<i class="icon-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/"><i class="icon-user"></i>我的信息</a></li>
+						<li class="divider"></li>
+						<li><a href="/"><i class="icon-lock"></i> 锁定帐号</a></li>
+						<li><a href="login.html"><i class="icon-key"></i>退出登录</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="utf-8" />
+	<title>${title!}</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="${config.description!}" name="description" />
+	<meta content="${config.author!}" name="author" />
+	<meta content="${config.keyWords!}" name="keyWords" />
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link href="${config.resourcePath!}/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/default.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+	<!-- END GLOBAL MANDATORY STYLES -->
+	<!-- BEGIN PAGE LEVEL STYLES -->
+	<link href="${config.resourcePath!}/media/css/bootstrap-fileupload.css" rel="stylesheet" type="text/css" />
+	<link href="${config.resourcePath!}/media/css/chosen.css" rel="stylesheet" type="text/css" />
+	<link href="${config.resourcePath!}/media/css/profile.css" rel="stylesheet" type="text/css" />
+	<!-- END PAGE LEVEL STYLES -->
+	<link rel="shortcut icon" href="${config.resourcePath!}/media/image/favicon.ico" />
+</head>
+<body class="page-header-fixed">
+	<!-- BEGIN HEADER -->
+	<!--:include("/WEB-INF/views/admin/common/header.html"){}  -->
+	<div class="page-container row-fluid">
+	<!--:include("/WEB-INF/views/admin/common/sidebar-menu.html"){}  -->
+	<div class="page-content">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="color-panel hidden-phone">
+						<div class="color-mode-icons icon-color"></div>
+						<div class="color-mode-icons icon-color-close"></div>
+						<div class="color-mode">
+							<p>THEME COLOR</p>
+							
+						</div> 
+						
+					</div>
+					<h3 class="page-title">
+						用户 <small>用户资料</small>
+					</h3>
+					<ul class="breadcrumb">
+					<li>
+						<i class="icon-home"></i>
+						<a href="index.html">Home</a> 
+						<i class="icon-angle-right"></i>
+					</li>
+					<li>
+						<a href="#">Layouts</a>
+						<i class="icon-angle-right"></i>
+					</li>
+					<li><a href="#">Blank Page</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+						Blank page content goes here
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="footer">
+		<div class="footer-inner">
+			${config.copyright!}
+		</div>
+		<div class="footer-tools">
+			<span class="go-top">
+				<i class="icon-angle-up"></i>
+			</span>
+		</div>
+	</div>
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	<!-- BEGIN CORE PLUGINS -->
+	<script src="${config.resourcePath!}/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<script src="${config.resourcePath!}/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="${config.resourcePath!}/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	<script src="${config.resourcePath!}/media/js/bootstrap.min.js" type="text/javascript"></script>
+	<!--[if lt IE 9]>
+	<script src="${config.resourcePath!}/media/js/excanvas.min.js"></script>
+	<script src="${config.resourcePath!}/media/js/respond.min.js"></script>  
+	<![endif]-->   
+	<script src="${config.resourcePath!}/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="${config.resourcePath!}/media/js/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="${config.resourcePath!}/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="${config.resourcePath!}/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+	<!-- END CORE PLUGINS -->
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/bootstrap-fileupload.js"></script>
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/chosen.jquery.min.js"></script>
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script src="${config.resourcePath!}/media/js/app.js"></script>      
+	<!-- END PAGE LEVEL SCRIPTS -->
+	<script>
+		jQuery(document).ready(function() {       
+		   // initiate layout and plugins
+		   App.init();
+		});
+	</script>
+
+	<!-- END JAVASCRIPTS -->
+</body>
+</html>

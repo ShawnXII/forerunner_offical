@@ -21,12 +21,6 @@
 	<aop:aspectj-autoproxy expose-proxy="true" />
 		<aop:config expose-proxy="true" proxy-target-class="true">
 	</aop:config>
-	
-          
-	<!-- <aop:config>
-        <aop:advisor id="druidAdvisor" advice-ref="druidStatInterceptor" pointcut="execution(* com.forerunner.core.service.*+.*(..))" />
-    </aop:config> -->
-    
     
 	<context:property-placeholder location="classpath:resources.properties" />
 	<!-- 注解事物 -->
@@ -35,8 +29,7 @@
 	<context:annotation-config />
 
 	<context:component-scan base-package="com.forerunner" />
-
-
+	<bean class="com.forerunner.core.tool.SpringUtils"></bean>
 	<!-- jpa配置 -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
