@@ -1,4 +1,4 @@
-package com.forerunner.core.tool;
+package com.forerunner.core.login;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,11 +8,13 @@ import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.forerunner.core.service.system.AccountService;
+import com.forerunner.core.tool.CommUtil;
+import com.forerunner.core.tool.SessionTool;
+import com.forerunner.core.tool.SpringUtils;
 import com.forerunner.foundation.domain.po.system.Account; 
 
 /**
- * 登录缓存配置
- * 
+ * 登录配置 
  * @author Administrator
  *
  */
@@ -22,11 +24,36 @@ public class LoginUtil {
 	
 	private static final String LOGIN_KEY="login_key";
 	
-	private static final String LOGIN_PASSWORD_ERROR="login_password_error";
 	private static int num=0;
+	//5次登录
+	private static final int degree=5;
+	/**
+	 * 登录 验证密码是否存在
+	 * @param account
+	 * @param request
+	 */
+	public static LoginMsg login(Account account,HttpServletRequest request,String password,String username){
+		LoginMsg msg=new LoginMsg();
+		if(account==null){
+			return msg;
+		}
+		String findPwd=CommUtil.encrypt(password, account.getSalt());
+		if(!findPwd.equals(account.getPassword())){
+			//处理密码输入错误 如果同一个帐号连续输入错误5次 则锁定该帐号
+			SessionTool tool = SessionTool.getInstance(request);
+			if(tool.exists(LOGIN_KEY)){
+				LoginUser loginUser=new LoginUser(username,null);
+				loginUser.setEnableadMsg("");
+				tool.set(LOGIN_KEY, "");
+			}
+			msg.setPasswordErrorMsg("密码错误");
+			msg.setPubliErrorMsg("密码不正确,还有'+num+'次机会.");
+			return msg;
+		}	
+		return msg;
+	}
 	/**
 	 * 保存登录信息 ID是key 每次登录时查找该帐号是否已经登录 value 存的登录信息 登录次数 登录ip 加入Cookie里面
-	 * 
 	 * @param account
 	 */
 	public static void save(Account account, HttpServletRequest request) {
@@ -59,90 +86,8 @@ public class LoginUtil {
 	public static synchronized void deleteLoginNum(){
 		num--;		
 	}
-	/**
-	 * 获取登录失败次数
-	 * @param id
-	 * @param request
-	 * @return
-	 */
-	public static int  getPasswordError(String id, HttpServletRequest request){
-		if(StringUtils.isBlank(id)){
-			return 1;
-		}
-		int num=1;
-		SessionTool tool = SessionTool.getInstance(request);
-		if(tool.exists(LOGIN_PASSWORD_ERROR)){
-			String value=CommUtil.null2String(tool.get(LOGIN_PASSWORD_ERROR));
-			String[] arr=value.split(",");
-			for(String a:arr){
-				String[] arr1=a.split("_");
-				String aid=arr1[0];
-				if(aid.equals(id)){
-					num=CommUtil.null2Int(arr1[1],1);
-					break;
-				}
-			}
-		}
-		return num;
-	}
-	public static void deleteError( HttpServletRequest request){
-		SessionTool tool = SessionTool.getInstance(request);
-		if(tool.exists(LOGIN_PASSWORD_ERROR)){
-			tool.del(LOGIN_PASSWORD_ERROR);
-		}
-	}
-	/**
-	 * 用户登录密码输入错误次数
-	 * @param id
-	 * @param request
-	 */
-	public static int addError(String id, HttpServletRequest request){
-		if(StringUtils.isBlank(id)){
-			return 0;
-		}
-		int num=1;
-		int time=2*60*60;
-		SessionTool tool = SessionTool.getInstance(request);
-		if(tool.exists(LOGIN_PASSWORD_ERROR)){
-			//存在
-			String value=CommUtil.null2String(tool.get(LOGIN_PASSWORD_ERROR));
-			String[] arr=value.split(",");
-			boolean flag=false;
-			StringBuilder sb=new StringBuilder();
-			int i=0;
-			for(String a:arr){
-				if(i>0){
-					sb.append(",");
-				}
-				String[] arr1=a.split("_");
-				String aid=arr1[0];
-				Integer num1=CommUtil.null2Int(arr1[1],1);
-				if(aid.equals(id)){
-					num1++;
-					flag=true;
-					num=num1;
-					sb.append(id).append("_").append(num1);
-				}else{
-					sb.append(a);
-				}
-				i++;
-			}
-			if(!flag){
-				sb.append(",").append(id).append("_").append(1);
-			}
-			if(log.isDebugEnabled()){
-				log.debug("登录密码输入错误次数:"+sb.toString());
-			}
-			tool.set(LOGIN_PASSWORD_ERROR, sb.toString(),time);
-		}else{
-			String str=id+"_"+1;
-			if(log.isDebugEnabled()){
-				log.debug("登录密码输入错误次数:"+str);
-			}
-			tool.set(LOGIN_PASSWORD_ERROR, str,time);
-		}
-		return num;
-	}
+	
+	
 	/**
 	 * 锁定帐号
 	 * @param account

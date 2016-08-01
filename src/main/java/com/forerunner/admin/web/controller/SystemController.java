@@ -9,7 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.forerunner.core.web.resource.CommonParams;
 import com.forerunner.web.controller.BaseController;
-
+/**
+ * 系统设置,用户,权限等系统管理
+ * @author Administrator
+ */
 @Controller
 @RequestMapping(value="/admin/system")
 public class SystemController extends BaseController{
@@ -26,4 +29,5 @@ public class SystemController extends BaseController{
 		CommonParams.loadParams(view,"系统设置")	;
 		return view;
 	}
+	
 }

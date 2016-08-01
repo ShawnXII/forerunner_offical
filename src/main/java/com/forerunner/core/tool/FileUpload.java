@@ -29,7 +29,7 @@ public class FileUpload  {
 	public static String uploadFile(MultipartFile file, HttpServletRequest request,FileUse use) throws IOException{
 		String fileName = file.getOriginalFilename();
 		//判断是否已经登录 如果登录 则上传至登录ID的文件夹 如/upload/用户ID/用途/日期/文件名称
-		Account acc=LoginUtil.getAccount(request);
+		Account acc=null;
 		StringBuilder filePath=new StringBuilder(ROOT_FILE_PATH);
 		if(acc!=null){
 			filePath.append("/"+acc.getId());
