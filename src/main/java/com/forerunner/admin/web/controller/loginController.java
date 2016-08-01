@@ -1,23 +1,35 @@
 package com.forerunner.admin.web.controller;
 
+import java.beans.BeanInfo;
+import java.beans.IntrospectionException;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSON;
 import com.forerunner.core.service.system.AccountService;
-import com.forerunner.core.tool.CommUtil;
+import com.forerunner.core.sso.EnrollUtil;
+import com.forerunner.core.sso.LoginMsg;
+import com.forerunner.core.sso.LoginUser;
+import com.forerunner.core.sso.LoginUtil;
+import com.forerunner.core.tool.BeanUtil;
 import com.forerunner.core.web.resource.CommonParams;
 import com.forerunner.foundation.domain.po.system.Account;
 import com.forerunner.web.controller.BaseController;
@@ -47,7 +59,7 @@ public class loginController extends BaseController {
 	@RequestMapping(value = "/login.htm")
 	public ModelAndView toLogin(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView view = new ModelAndView();
-		view.setViewName("/admin/login");
+		view.setViewName("/admin/sso/login");
 		CommonParams.loadParams(view, "登录");
 		return view;
 	}
@@ -65,28 +77,84 @@ public class loginController extends BaseController {
 	public Map<String, Object> doLogin(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam(required=true) String username, @RequestParam(required=true) String password) {
 		Map<String, Object> result = Maps.newHashMap();
-		result.put("flag", false);
-		Account account = this.accountService.getAccountByUsername(username);
-		if(account==null){
-			result.put("errorMsg", "账号不存在");
-			return result;
-		}
-		if(log.isDebugEnabled()){
-			log.debug("Login Account:"+JSON.toJSONString(account));
-		}
-		Boolean enablead=account.getEnablead();
-		if(enablead){
-			result.put("errorMsg", "账号已经被锁住");
-			return result;
-		}
-		String salt=account.getSalt();
-		String findpwd = CommUtil.encrypt(password, salt);
-		if (!findpwd.equals(account.getPassword())) {
-			//密码错误 把错误次数加入Session中
-			result.put("errorMsg", "密码错误");
-			return result;
+		LoginMsg msg=LoginUtil.login(request, password, username);
+		result=BeanUtil.transBean2Map(msg);
+		return result;
+	}
+	/**
+	 * 测试方法 获取当前登录用户
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "/getLogin.htm")
+	@ResponseBody
+	public Map<String,Object> getLogin(HttpServletRequest request, HttpServletResponse response){
+		Map<String, Object> result = Maps.newHashMap();
+		LoginUser loginUser=LoginUtil.getAccount(request);
+		try {
+			BeanInfo beanInfo = Introspector.getBeanInfo(loginUser.getClass());
+			PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors(); 
+			for (PropertyDescriptor property : propertyDescriptors) {  
+                String key = property.getName();  
+                // 过滤class属性  
+                if (!key.equals("class")) {  
+                    // 得到property对应的getter方法  
+                    Method getter = property.getReadMethod();  
+                    Object value = getter.invoke(loginUser);  
+                    result.put(key, value);  
+                }  
+            } 
+		} catch (IllegalAccessException | InvocationTargetException | IntrospectionException e) {
 		}
 		return result;
 	}
-
+	/**
+	 * 注册页面
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value = "/enroll.htm")
+	public ModelAndView toEnroll(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/admin/sso/enroll");
+		CommonParams.loadParams(view, "注册");
+		return view;
+	}
+	/**
+	 * 注册
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "/doEnroll.htm",method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String,Object> doEnroll(HttpServletRequest request, HttpServletResponse response,Account account){
+		Map<String,Object> result=Maps.newHashMap();
+		result.put("flag", false);
+		try{
+			EnrollUtil.enroll(account);
+			result.put("flag", true);
+		}catch(Exception e){
+			result.put("errorMsg", e.getMessage());
+		}		
+		return result;
+	}
+	/**
+	 * 检查帐号是否存在
+	 * @param request
+	 * @param response
+	 * @param username
+	 * @return
+	 */
+	@RequestMapping(value = "/check/{username}.htm",method = RequestMethod.POST)
+	public Boolean check(HttpServletRequest request, HttpServletResponse response,@PathVariable("username") String username){
+		if(StringUtils.isBlank(username)){
+			return false;
+		}
+		Account account=accountService.getAccountByUsername(username);
+		return account!=null;
+	}
+	
+	
 }

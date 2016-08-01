@@ -1,4 +1,4 @@
-package com.forerunner.core.login;
+package com.forerunner.core.sso;
 
 import java.util.Date;
 
@@ -6,7 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.forerunner.core.tool.CommUtil;
 import com.forerunner.foundation.domain.po.system.Account;
-import com.forerunner.foundation.domain.po.system.PersonalInfo;
 
 public class LoginUser implements java.io.Serializable{
 	

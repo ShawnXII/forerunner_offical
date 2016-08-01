@@ -1,4 +1,4 @@
-package com.forerunner.core.login;
+package com.forerunner.core.sso;
 
 /**
  * 登录返回信息模版
