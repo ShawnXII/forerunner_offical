@@ -27,7 +27,7 @@ public class LoginUser implements java.io.Serializable{
 	private String enableadMsg;
 	
 	public LoginUser(String username,Account account){
-		this.image="/media/image/avatar1_small.jpg";
+		this.image="/media/image/avatar.png";
 		if(account!=null){
 			String name=CommUtil.hidename(username);
 			if(StringUtils.isNotBlank(account.getNickname())){

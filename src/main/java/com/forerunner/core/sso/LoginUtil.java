@@ -1,5 +1,7 @@
 package com.forerunner.core.sso;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
@@ -52,14 +54,15 @@ public class LoginUtil {
 		try{	
 			String findPwd=CommUtil.encrypt(password, account.getSalt());
 			if(!findPwd.equals(account.getPassword())){
+				msg.setUserErrorMsg(null);
 				//处理密码输入错误 如果同一个帐号连续输入错误5次 则锁定该帐号
-				int cishu=addErrorNum(account.getId(),tool,request,account);	
+				//int cishu=addErrorNum(account.getId(),tool,request,account);	
 				msg.setPasswordErrorMsg("密码错误");
-				if(degree-cishu<1){
+				/*if(degree-cishu<1){
 					msg.setPubliErrorMsg("帐号已经被锁定!");
 					return msg;
-				}
-				msg.setPubliErrorMsg("密码不正确,还有"+(degree-cishu)+"次机会.");
+				}*/
+				//msg.setPubliErrorMsg("密码不正确,还有"+(degree-cishu)+"次机会.");
 				return msg;
 			}
 		}catch(IllegalArgumentException e){
@@ -163,13 +166,13 @@ public class LoginUtil {
 	 * @param request
 	 * @return
 	 */
-	public static LoginUser getAccount(HttpServletRequest request) {
+	public static Map<String,Object> getAccount(HttpServletRequest request) {
 		SessionTool tool = SessionTool.getInstance(request);
 		String json = CommUtil.null2String(tool.get(LOGIN_KEY));
 		if (StringUtils.isBlank(json)) {
 			return null;
 		}
-		LoginUser loginUser = JSON.parseObject(json,LoginUser.class);
+		Map<String,Object> loginUser = JSON.parseObject(json,Map.class);
 		return loginUser;
 	}
 	/**

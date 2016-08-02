@@ -36,13 +36,13 @@
 	<div class="content">
 		<form class="form-vertical register-form" action="${config.contextPath!}/sso/doEnroll.htm" style="display: block;" id="enrollForm">
 			<h3 class="">注册</h3>
-			<p>请输入您的注册信息:</p>
+			<p id="enroll_msg">请输入您的注册信息:</p>
 			<div class="control-group">
 				<label class="control-label visible-ie8 visible-ie9">用户名</label>
 				<div class="controls">
 					<div class="input-icon left">
 						<i class="icon-user"></i>
-						<input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名/手机号/邮箱" name="account.username" id="username"/>
+						<input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名/手机号/邮箱" name="username" id="username"/>
 					</div>
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 				<div class="controls">
 					<div class="input-icon left">
 						<i class="icon-lock"></i>
-						<input class="m-wrap placeholder-no-fix" type="password" id="register_password" placeholder="请输入您的密码" name="account.password"/>
+						<input class="m-wrap placeholder-no-fix" type="password" id="register_password" placeholder="请输入您的密码" name="password"/>
 					</div>
 				</div>
 			</div>
@@ -113,7 +113,7 @@
 	<script>
 		jQuery(document).ready(function() {     
 		  App.init();
-		  Login.init();
+		  Login.init('enroll','${config.contextPath!}');
 		  $.backstretch([
 		        "${config.resourcePath!}/media/image/bg/1.jpg",
 		        "${config.resourcePath!}/media/image/bg/2.jpg",

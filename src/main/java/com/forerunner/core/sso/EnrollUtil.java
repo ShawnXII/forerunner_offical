@@ -41,7 +41,7 @@ public class EnrollUtil {
 			account.setUsername(username);
 		}
 		String  salt=CommUtil.getSalt();
-		
+		account.setSalt(salt);
 		account.setPassword(CommUtil.encrypt(password, salt));
 		account.setEnablead(false);
 		account.setStatus(0);

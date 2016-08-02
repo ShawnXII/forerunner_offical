@@ -90,23 +90,7 @@ public class loginController extends BaseController {
 	@RequestMapping(value = "/getLogin.htm")
 	@ResponseBody
 	public Map<String,Object> getLogin(HttpServletRequest request, HttpServletResponse response){
-		Map<String, Object> result = Maps.newHashMap();
-		LoginUser loginUser=LoginUtil.getAccount(request);
-		try {
-			BeanInfo beanInfo = Introspector.getBeanInfo(loginUser.getClass());
-			PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors(); 
-			for (PropertyDescriptor property : propertyDescriptors) {  
-                String key = property.getName();  
-                // 过滤class属性  
-                if (!key.equals("class")) {  
-                    // 得到property对应的getter方法  
-                    Method getter = property.getReadMethod();  
-                    Object value = getter.invoke(loginUser);  
-                    result.put(key, value);  
-                }  
-            } 
-		} catch (IllegalAccessException | InvocationTargetException | IntrospectionException e) {
-		}
+		Map<String, Object> result = LoginUtil.getAccount(request);
 		return result;
 	}
 	/**
@@ -129,12 +113,20 @@ public class loginController extends BaseController {
 	 */
 	@RequestMapping(value = "/doEnroll.htm",method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> doEnroll(HttpServletRequest request, HttpServletResponse response,Account account){
+	public Map<String,Object> doEnroll(HttpServletRequest request, HttpServletResponse response,
+			String username,String password){
 		Map<String,Object> result=Maps.newHashMap();
 		result.put("flag", false);
+		Account account=new Account();
+		account.setUsername(username);
+		account.setPassword(password);
 		try{
-			EnrollUtil.enroll(account);
-			result.put("flag", true);
+			if(account!=null){
+				EnrollUtil.enroll(account);
+				result.put("flag", true);
+				//如果注册成功 则进行登陆
+				LoginUtil.login(request, password, username);
+			}
 		}catch(Exception e){
 			result.put("errorMsg", e.getMessage());
 		}		
