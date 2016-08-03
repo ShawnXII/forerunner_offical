@@ -26,9 +26,10 @@ public class Product extends BaseEntity{
 	private String photo;
 	//推荐价格
 	private BigDecimal price;
-	//分类
-	@Column(name="product_class")
-	private String productClass;
+	//分类ID
+	@Column(name="classify_id")
+	private Long classifyId;
+	
 	//产品介绍 JSON
 	@Column(length=1024)
 	private String introduce;
@@ -63,11 +64,12 @@ public class Product extends BaseEntity{
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-	public String getProductClass() {
-		return productClass;
+	
+	public Long getClassifyId() {
+		return classifyId;
 	}
-	public void setProductClass(String productClass) {
-		this.productClass = productClass;
+	public void setClassifyId(Long classifyId) {
+		this.classifyId = classifyId;
 	}
 	public String getIntroduce() {
 		return introduce;
@@ -105,4 +107,12 @@ public class Product extends BaseEntity{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@Override
+	public String toString() {
+		return "Product [productName=" + productName + ", photo=" + photo + ", price=" + price + ", classifyId="
+				+ classifyId + ", introduce=" + introduce + ", spec=" + spec + ", images=" + images + ", title=" + title
+				+ ", keywords=" + keywords + ", description=" + description + "]";
+	}
+	
+	
 }

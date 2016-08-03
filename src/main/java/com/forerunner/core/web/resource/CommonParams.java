@@ -2,7 +2,6 @@ package com.forerunner.core.web.resource;
 
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.forerunner.core.service.system.ConfigService;
 import com.forerunner.core.tool.SpringUtils;
 import com.forerunner.foundation.domain.po.system.Config;
-import com.google.common.collect.Lists;
 
 /**
  * 获取页面的公共参数
@@ -34,7 +32,7 @@ public class CommonParams {
 		}
 		ConfigService config=SpringUtils.getBean("configService");
 		List<Config> list=config.getSystemConfig("system");
-		PageParams page=getPageParams(list);
+		PageParams page=listToBean(list);
 		String title1=title;
 		if(StringUtils.isNotBlank(page.getCorporateName())){
 			if(StringUtils.isNotBlank(title)){
@@ -45,13 +43,21 @@ public class CommonParams {
 		}
 		view.addObject("config", page);
 		view.addObject("title", title1);
+		//获取友情链接(缓存)
+		//获取头部菜单(缓存)
+		//获取滚动推荐(缓存)
 	}
 	
 	public static void loadParams(ModelAndView view){
 		loadParams(view,"");
 	}
 	
-	private static PageParams getPageParams(List<Config> list){
+	/**
+	 * List转换成bean
+	 * @param list
+	 * @return
+	 */
+	private static PageParams listToBean(List<Config> list){
 		PageParams page=new PageParams();
 		if(list==null){
 			return page;
@@ -77,15 +83,6 @@ public class CommonParams {
 			}			
 		}
 		return page;
-	}
-	public static void main(String[] args){
-		List<Config> list=Lists.newArrayList();
-		Config config1=new Config();
-		config1.setType("corporateName");
-		config1.setValue("欧沃泉1");
-		list.add(config1);
-		System.out.println(getPageParams(list));
-		
 	}
 	
 }

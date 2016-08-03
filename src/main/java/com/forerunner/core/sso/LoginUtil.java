@@ -114,7 +114,7 @@ public class LoginUtil {
 							//锁定帐号
 							AccountService accountService=SpringUtils.getBean(AccountService.class);
 							account.setEnablead(true);
-							accountService.saveOrUpdate(account);
+							accountService.save(account);
 							if(log.isDebugEnabled()){
 								log.debug("账号已经被锁定！");
 							}

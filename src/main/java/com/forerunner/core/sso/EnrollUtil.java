@@ -52,6 +52,6 @@ public class EnrollUtil {
 		if(StringUtils.isBlank(account.getNickname())){
 			account.setNickname("管理员_"+username);
 		}
-		accountService.saveOrUpdate(account);
+		accountService.save(account);
 	}
 }

@@ -1,14 +1,16 @@
 package com.forerunner.core.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.forerunner.core.repository.BaseRepository;
+import com.forerunner.core.search.Searchable;
 import com.forerunner.foundation.domain.po.AbstractEntity;
 import com.google.common.collect.Lists;
 
@@ -23,9 +25,12 @@ import com.google.common.collect.Lists;
 @Transactional
 public abstract class BaseService<M extends AbstractEntity<ID>, ID extends java.io.Serializable> {
 
+	protected BaseRepository<M, ID> baseRepository;
+	
+	protected boolean hasInit = false;
+	protected boolean isFullCached = false;
+	
 	@Autowired
-	private BaseRepository<M, ID> baseRepository;
-
 	public void setBaseRepository(BaseRepository<M, ID> baseRepository) {
 		this.baseRepository = baseRepository;
 	}
@@ -33,96 +38,242 @@ public abstract class BaseService<M extends AbstractEntity<ID>, ID extends java.
 	public BaseRepository<M, ID> getBaseRepository() {
 		return this.baseRepository;
 	}
+	
+	public void init() {
+		this.hasInit = true;
+	}
+	
+	 /**
+     * 保存单个实体
+     *
+     * @param m 实体
+     * @return 返回保存的实体
+     */
+    public boolean save(M m) {
+    	M m1 =  baseRepository.save(m);
+    	if(m1 != null){
+    		return true;
+    	}
+        return false;
+    }
+    
+    public Iterable<M> save(Iterable<M> entities) {
+    	Iterable<M> m1 =  baseRepository.save(entities);
+    	return m1;
+    }
+    
+    public M saveObj(M m) {
+    	m =  baseRepository.save(m);
+    	if(m != null){
+    		return m;
+    	}
+    	return null;
+    }
 
-	/**
-	 * 保存单个实体
-	 * 
-	 * @param entity
-	 * @return
-	 */
-	public M saveOrUpdate(M entity) {
-		return this.baseRepository.save(entity);
+    public M saveAndFlush(M m) {
+        m = baseRepository.save(m);
+       // baseRepository.flush();
+        return m;
+    }
+
+    /**
+     * 更新单个实体
+     *
+     * @param m 实体
+     * @return 返回更新的实体
+     */
+    public boolean update(M m) {
+    	M m1 = baseRepository.save(m);
+    	if(m1.equals(m)){
+    		return false;
+    	}
+    	return true;
+    }
+
+    /**
+     * 根据主键删除相应实体
+     *
+     * @param id 主键
+     */
+    @Transactional
+    public boolean delete(ID id) {
+        baseRepository.delete(id);
+        return true;
+    }
+
+    /**
+     * 删除实体
+     *
+     * @param m 实体
+     */
+    public void delete(M m) {
+        baseRepository.delete(m);
+    }
+
+    /**
+     * 根据主键删除相应实体
+     *
+     * @param ids 实体
+     */
+    public void delete(ID[] ids) {
+        baseRepository.delete(ids);
+    }
+
+
+    /**
+     * 按照主键查询
+     *
+     * @param id 主键
+     * @return 返回id对应的实体
+     */
+    public M findOne(ID id) {
+        M m = baseRepository.findOne(id);
+        return m;
+    }
+
+    /**
+     * 实体是否存在
+     *
+     * @param id 主键
+     * @return 存在 返回true，否则false
+     */
+    public boolean exists(ID id) {
+        return baseRepository.exists(id);
+    }
+
+    /**
+     * 统计实体总数
+     *
+     * @return 实体总数
+     */
+    public long count() {
+        return baseRepository.count();
+    }
+
+    /**
+     * 查询所有实体
+     *
+     * @return
+     */
+    public List<M> findAll() {
+        return baseRepository.findAll();
+    }
+
+    /**
+     * 按照顺序查询所有实体
+     *
+     * @param sort
+     * @return
+     */
+    public List<M> findAll(Sort sort) {
+        return baseRepository.findAll(sort);
+    }
+
+    /**
+     * 分页及排序查询实体
+     *
+     * @param pageable 分页及排序数据
+     * @return
+     */
+    public Page<M> findAll(Pageable pageable) {
+        return baseRepository.findAll(pageable);
+    }
+
+    /**
+     * 按条件分页并排序查询实体
+     *
+     * @param searchable 条件
+     * @return
+     */
+    public Page<M> findAll(Searchable searchable) {
+        return baseRepository.findAll(searchable);
+    }
+
+    /**
+     * 组装自定义sql
+     * @return
+     */
+    public List<M> findAll(String definedSql) {
+        return baseRepository.findAll(definedSql);
+    }
+    
+    /**
+     * 按条件不分页不排序查询实体
+     *
+     * @param searchable 条件
+     * @return
+     */
+    public List<M> findAllWithNoPageNoSort(Searchable searchable) {
+        searchable.removePageable();
+        searchable.removeSort();
+        return Lists.newArrayList(baseRepository.findAll(searchable).getContent());
+    }
+
+    /**
+     * 按条件排序查询实体(不分页)
+     *
+     * @param searchable 条件
+     * @return
+     */
+    public List<M> findAllWithSort(Searchable searchable) {
+        searchable.removePageable();
+        return Lists.newArrayList(baseRepository.findAll(searchable).getContent());
+    }
+
+
+    /**
+     * 按条件分页并排序统计实体数量
+     *
+     * @param searchable 条件
+     * @return
+     */
+    public Long count(Searchable searchable) {
+        return baseRepository.count(searchable);
+    }
+
+    public List<M> findByPropertyAndCondition(Map<String,String> params,String sqlCondition){
+    	return baseRepository.findByPropertyAndCondition(params,sqlCondition);
+    }
+    
+    public List<M> findByProperty(Map<String,String> params){
+    	return baseRepository.findByProperty(params);
+    }
+
+	public List<M> query(String query, Map<String,Object> params, int begin, int max) {
+		return this.baseRepository.query(query, params, begin, max);
 	}
 
-	/**
-	 * 保存多个实体
-	 * 
-	 * @param entities
-	 * @return
-	 */
-	public Iterable<M> save(Iterable<M> entities) {
-		return this.baseRepository.save(entities);
+
+	public M getObjByProperty(Class<M> clazz, String propertyName, String value) {
+		return this.baseRepository.getBy(clazz, propertyName, value);
+	}
+	
+	public M getObjByProperty(String propertyName, String value) {
+		return this.baseRepository.getBy(propertyName, value);
+	}
+	
+	public M getObjByProperty(String propertyName, Object value) {
+		return this.baseRepository.getBy(propertyName, value);
+	}
+	
+	public M getObjById(ID id){
+		return this.baseRepository.findOne(id);
+	}
+	
+	public M getBy(String propertyName, Object value) {
+		return this.baseRepository.getBy(propertyName, value);
 	}
 
-	/**
-	 * 删除实体
-	 * 
-	 * @param m
-	 */
-	public void delete(M m) {
-		baseRepository.delete(m);
+	public boolean isHasInit() {
+		return hasInit;
 	}
-	/**
-	 * 按照主键查询
-	 * @param id
-	 * @return
-	 */
-	public M findOne(ID id) {	
-		return baseRepository.findOne(id);
+
+	public void setHasInit(boolean hasInit) {
+		this.hasInit = hasInit;
 	}
-	/**
-	 * 实体是否存在
-	 * @param id
-	 * @return
-	 */
-	public boolean exists(ID id) {
-		return this.baseRepository.exists(id);
-	}
-	/**
-	 * 统计实体数量
-	 * @return
-	 */
-	public long count(){
-		return this.baseRepository.count();
-	}
-	/**
-	 * 查询全部
-	 * @return
-	 */
-	public List<M> findAll(){
-		Iterable<M> iterable=this.baseRepository.findAll();
-		if(iterable!=null){
-			return Lists.newArrayList(iterable.iterator());
-		}
-		return Lists.newArrayList();
+	public void setHasInit() {
+		this.hasInit = true;
 	}
 	
-	public List<M> findAll(Sort sort){
-		Iterable<M> iterable=this.baseRepository.findAll(null, sort);
-		if(iterable!=null){
-			return Lists.newArrayList(iterable.iterator());
-		}
-		return Lists.newArrayList();
-	}
-	
-	public List<M> findAll(Specification<M> spec){
-		Iterable<M> iterable=this.baseRepository.findAll(spec);
-		if(iterable!=null){
-			return Lists.newArrayList(iterable.iterator());
-		}
-		return Lists.newArrayList();
-	}
-	
-	public List<M> findAll(Specification<M> spec,Pageable pageable){
-		Iterable<M> iterable=this.baseRepository.findAll(spec, pageable);
-		if(iterable!=null){
-			return Lists.newArrayList(iterable.iterator());
-		}
-		return Lists.newArrayList();
-	}
-	
-	public long count(Specification<M> spec){
-		return this.baseRepository.count(spec);
-	}
 	
 }

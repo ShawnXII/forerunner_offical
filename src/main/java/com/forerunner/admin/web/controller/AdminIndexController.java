@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +20,7 @@ import com.forerunner.web.controller.BaseController;
 @Controller
 @RequestMapping(value="/admin")
 public class AdminIndexController extends BaseController{
+	@Autowired
 	private AccountService accountService;
 	
 	@RequestMapping(value={"/","/index.htm"})
@@ -31,7 +33,5 @@ public class AdminIndexController extends BaseController{
 		Account account=accountService.findOne(id);
 		return view;
 	}
-	
-	
-	
+		
 }

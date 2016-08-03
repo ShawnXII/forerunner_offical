@@ -19,9 +19,9 @@
        http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository-1.5.xsd">
 	<!-- 开启AOP监听 只对当前配置文件有效 -->
 	<aop:aspectj-autoproxy expose-proxy="true" />
-		<aop:config expose-proxy="true" proxy-target-class="true">
+	<aop:config expose-proxy="true" proxy-target-class="true">
 	</aop:config>
-    
+
 	<context:property-placeholder location="classpath:resources.properties" />
 	<!-- 注解事物 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -73,15 +73,12 @@
 		entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager" repository-impl-postfix="Impl" />
 
-	<!-- 类型转换及数据格式化 -->
-	<bean id="conversionService"
-		class="org.springframework.format.support.FormattingConversionServiceFactoryBean"></bean>
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod"
+			value="com.forerunner.core.repository.RepositoryHelper.setEntityManagerFactory" />
+		<property name="arguments" ref="entityManagerFactory" />
+	</bean>
 
-	<bean id="domainClassConverter" class="org.springframework.data.repository.support.DomainClassConverter">
-        <constructor-arg ref="conversionService"/>
-    </bean>
-	
-    
 	<!-- Redis配置 -->
 	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
 	</bean>

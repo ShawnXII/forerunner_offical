@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean;
 import org.springframework.data.repository.core.RepositoryMetadata;
 import org.springframework.data.repository.core.support.RepositoryFactorySupport;
 
+import com.forerunner.core.repository.support.SimpleBaseRepository;
 import com.forerunner.foundation.domain.po.AbstractEntity;
 
 public class BaseRepositoryFactoryBean<R extends JpaRepository<T, I>, T extends AbstractEntity<I>, I extends Serializable>

@@ -21,9 +21,6 @@
 	<link href="${config.resourcePath!}/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 	<!-- END GLOBAL MANDATORY STYLES -->
 	<!-- BEGIN PAGE LEVEL STYLES -->
-<!-- 	<link href="${config.resourcePath!}/media/css/bootstrap-fileupload.css" rel="stylesheet" type="text/css" />
-	<link href="${config.resourcePath!}/media/css/chosen.css" rel="stylesheet" type="text/css" />
-	<link href="${config.resourcePath!}/media/css/profile.css" rel="stylesheet" type="text/css" /> -->
 	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/select2_metro.css" />
 	<link rel="stylesheet" href="${config.resourcePath!}/media/css/DT_bootstrap.css" />
 	<!-- END PAGE LEVEL STYLES -->
@@ -64,48 +61,41 @@
 					</ul>
 				</div>
 			</div>
+			${productList!}
+			${size!}
+			${totalPages!}
+			${totalElements!}
 			<div class="row-fluid">
 				<div class="span12">
-						系统设置
-				<div class="portlet box blue">		
-				<div class="portlet-title">
-						<div class="caption"><i class="icon-cogs"></i>系统参数</div>
-						<div class="tools">
-							<a href="javascript:;" class="collapse"></a>
-							<a href="#portlet-config" data-toggle="modal" class="config"></a>
-							<a href="javascript:;" class="reload"></a>
-							<a href="javascript:;" class="remove"></a>
-						</div>
-					</div>
 					<div class="portlet-body">
-					<div class="clearfix">
-						<div class="btn-group">
-						<a href="#system-config-modal" role="button" class="btn btn-primary green" data-toggle="modal">
-							新增<i class="icon-plus"></i>
-						</a>
-							<!-- <button id="sample_editable_1_new" class="btn green">
-							
-							</button> -->
-						</div>
-						<!--Print Button-->
+						<table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+							<thead>
+								<tr>
+									<th>产品名称2</th>
+									<th>产品分类2</th>
+									<th>产品参数2</th>
+									<th>产品说明</th>
+									<th>推荐价格</th>
+									<th>创建时间</th>
+									<th>当前状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!--:if(isEmpty(productList)){
+									for(product in productList){-->
+									<tr>
+										<td>${product.productName}</td>
+										<td>${product.classifyId}</td>
+										<td>${product.spec}</td>
+										<td>${product.title}</td>
+										<td></td>
+									</tr>	
+									<!--:}
+								}  -->
+							</tbody>
+						</table>
 					</div>
-					
-					<table class="table table-striped table-bordered table-hover" id="system_config_table">
-						<thead class="flip-content">
-							<tr>
-								<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#system_config_table.checkboxes" /></th>
-								<th class="numeric">类型</th>
-								<th class="numeric">Code</th>
-								<th class="numeric">参数类别</th>
-								<th class="numeric">参数值</th>
-								<th class="numeric">参数说明</th>
-													
-							</tr>
-							
-						</thead>
-					</table>
-					</div>
-					</div>	
 				</div>
 			</div>
 		</div>
