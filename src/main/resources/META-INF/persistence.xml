@@ -5,8 +5,9 @@
 	<persistence-unit name="official_persistence"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>com.forerunner.foundation.domain.po.product.Brand</class>
 		<class>com.forerunner.foundation.domain.po.product.Classify</class>
-		<class>com.forerunner.foundation.domain.po.product.Product</class>
+		<class>com.forerunner.foundation.domain.po.product.Product</class>	
 		<class>com.forerunner.foundation.domain.po.product.Property</class>
 		<class>com.forerunner.foundation.domain.po.product.Specification</class>
 		<class>com.forerunner.foundation.domain.po.system.Account</class>

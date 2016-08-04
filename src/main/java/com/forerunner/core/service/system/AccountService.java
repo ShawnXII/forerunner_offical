@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.forerunner.core.repository.system.AccountRepository;
+import com.forerunner.core.search.SearchOperator;
+import com.forerunner.core.search.Searchable;
 import com.forerunner.core.service.BaseService;
 import com.forerunner.foundation.domain.po.system.Account;
 
@@ -24,6 +26,8 @@ public class AccountService extends BaseService<Account, Long>{
 		if(list!=null&&list.size()==1){
 			return list.get(0);
 		}
+		Searchable searchable=Searchable.newSearchable().addSearchFilter("username", SearchOperator.eq, "");
+		this.findAll(searchable);
 		return null;
 	}
 

@@ -1,7 +1,9 @@
 package com.forerunner.foundation.domain.po.product;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.forerunner.foundation.domain.po.BaseEntity;
 /**
@@ -10,7 +12,7 @@ import com.forerunner.foundation.domain.po.BaseEntity;
  *
  */
 @Entity
-@Table(name="sys_classify")
+@Table(name="business_classify")
 public class Classify extends BaseEntity{
 
 	/**
@@ -18,21 +20,31 @@ public class Classify extends BaseEntity{
 	 */
 	private static final long serialVersionUID = 912857254908437320L;
 	
-	
+	@Column(name = "url")
 	private String url;
 	
+	@Column(name = "target")
 	private String target;
 	
+	@Column(name = "info")
 	private String info;
 	
+	@Column(name = "title")
 	private String title;
 	
+	@Column(name = "type")
 	private String type;
 	
+	@Column(name = "icon")	
 	private String icon;
 	
+	@Column(name = "image")	
 	private String image;
 	
+	@Column(name = "parent_id")
+	private Long parentId;
+	
+	@Transient
 	private Classify parent;
 
 	public String getUrl() {
@@ -97,6 +109,14 @@ public class Classify extends BaseEntity{
 
 	public void setParent(Classify parent) {
 		this.parent = parent;
+	}
+
+	public Long getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
 	
 }

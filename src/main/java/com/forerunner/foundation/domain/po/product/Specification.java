@@ -28,8 +28,10 @@ public class Specification extends AbstractEntity<Long>{
 	@Column(name="spec_name")
 	private String specName;
 	//排序号
+	@Column(name="sort")
 	private Integer sort;
 	
+	@Column(name="info")
 	private String info;
 	
 	public String getSpecName() {

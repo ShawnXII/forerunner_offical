@@ -22,19 +22,25 @@ public class Property extends AbstractEntity<Long>{
 	private static final long serialVersionUID = -5124634695604576318L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private Long id;
 	
 	@Column(name="property_name")
 	private String propertyName;
 	
+	@Column(name="sort")
 	private Integer sort;
 	//属性说明
+	@Column(name="info")
 	private String info;
 	//属性类型 1:文字 2:图片 3:icon
+	@Column(name="type")
 	private String type;
 	
+	@Column(name="icon")
 	private String icon;
 	
+	@Column(name="image")
 	private String image;
 	
 	@Override

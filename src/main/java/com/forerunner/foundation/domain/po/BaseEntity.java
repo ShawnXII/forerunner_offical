@@ -27,6 +27,7 @@ public class BaseEntity extends AbstractEntity<Long> {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private Long id;
 	
 	//创建时间 
@@ -45,6 +46,7 @@ public class BaseEntity extends AbstractEntity<Long> {
 	@Column(name="update_by")
 	private String updateBy;
 	//备注
+	@Column(name="remarks")
 	private String remarks;
 	//是否删除
 	@Column(name="delete_status")
