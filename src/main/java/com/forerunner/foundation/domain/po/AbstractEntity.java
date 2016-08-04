@@ -1,4 +1,5 @@
 package com.forerunner.foundation.domain.po;
+
 /**
  * 所有的数据库实体类都需要继承该类 并实现主键设计
  * @author Administrator

@@ -2,6 +2,9 @@ package com.forerunner.foundation.domain.po.product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.forerunner.foundation.domain.po.BaseEntity;
@@ -13,12 +16,23 @@ import com.forerunner.foundation.domain.po.BaseEntity;
  */
 @Entity
 @Table(name = "business_brand")
-public class Brand extends BaseEntity{
+public class Brand extends BaseEntity<Long>{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7907195557517358733L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private Long id;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	//品牌名称
 	@Column(name = "name")
 	private String name;

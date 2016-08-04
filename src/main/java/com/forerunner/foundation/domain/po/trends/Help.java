@@ -1,6 +1,10 @@
 package com.forerunner.foundation.domain.po.trends;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.forerunner.foundation.domain.po.BaseEntity;
@@ -11,13 +15,23 @@ import com.forerunner.foundation.domain.po.BaseEntity;
  */
 @Entity
 @Table(name="media_help")
-public class Help extends BaseEntity{
+public class Help extends BaseEntity<Long>{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3925928800614130164L;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private Long id;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	private String title;
 	
 	private Help parent;

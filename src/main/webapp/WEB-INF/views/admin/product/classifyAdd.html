@@ -77,150 +77,52 @@
 			<div class="row-fluid">
 				<div class="span12">
 					<div class="portlet-body form">
-						<form action="#" class="form-horizontal">
+						<form action="${config.contextPath!}/admin/product/classify/add.htm"  method="POST" class="form-horizontal">
+							<input id="id" name="id" value="${classify.id!}" type="hidden"/>
 							<div class="control-group">
-								<label class="control-label"><span style="color:red">*</span>产品名称:</label>
+								<label class="control-label">标题:</label>
 								<div class="controls">
-									<input type="text" class="span6 m-wrap tooltips" data-trigger="hover" data-original-title="必填,支持中文、字母、数字、“-”“_”的组合，4-20个字符." id="productName" name="productName" />
+									<input type="text" class="span9 m-wrap tooltips" data-trigger="hover" data-original-title="必填,支持中文、字母、数字、“-”“_”的组合，4-20个字符." id="title" name="title" value="${classify.title!}"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">副标题:</label>
-								<div class="controls">
-									<input type="text" class="span6 m-wrap tooltips" data-trigger="hover" data-original-title="支持中文、字母、数字、“-”“_”的组合，4-20个字符." id="subhead" name="subhead" />
+								<label class="control-label">URL:</label>
+								<div class="controls">	
+									<input class="span9 m-wrap tooltips" type="text" data-trigger="hover" data-original-title="必填,用于跳转页面链接." id="url" name="url" value="${classify.url!}"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">供应商价格:</label>
+								<label class="control-label">跳转方式:</label>
 								<div class="controls">
-									<div class="input-prepend input-append">
-										<span class="add-on">&yen;</span><input class="m-wrap " type="text" id="storePrice" name="storePrice" /><span class="add-on"></span>
-										<!--  $("#mask_number").inputmask({ "mask": "9", "repeat": 10, "greedy": false }); -->
-									</div>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label">推荐价格:</label>
-								<div class="controls">
-									<div class="input-prepend input-append">
-										<span class="add-on">&yen;</span><input class="m-wrap " type="text" id="storePrice" name="storePrice" /><span class="add-on"></span>
-										<!--  $("#mask_number").inputmask({ "mask": "9", "repeat": 10, "greedy": false }); -->
-									</div>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label">品牌:</label>
-								<div class="controls">
-									<select name="" id="select2_sample4" class="span6 select2">
-										<option value="1">阿玛尼</option>
-										<option value="2">奥迪</option>
-										<option value="3">哈哈</option>
+									<select  id="target" name="target" class="span9 chosen" data-placeholder="Choose a Category" tabindex="1" >
+										<option value="_self"   >_self,当前页面打开</option>
+										<option value="_blank" >_blank,新的页面打开</option>
+										<option value="_parent" >_parent,使文档载入父窗口或者包含来超链接引用的框架的框架</option>
+										<option value="_top" >_top,文档载入包含这个超链接的窗口</option>
 									</select>
-									<!-- <div class="input-prepend input-append">
-										<span class="add-on">&yen;</span><input class="m-wrap " type="text" id="storePrice" name="storePrice" />
-										 $("#mask_number").inputmask({ "mask": "9", "repeat": 10, "greedy": false });
-									</div> -->
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label">分类:</label>
-								<div class="controls">
-									<select name="" id="select2_sample5" class="span6 select2">
-										<option value="1">阿玛尼</option>
-										<option value="2">奥迪</option>
-										<option value="3">哈哈</option>
-									</select>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label">产品主图:</label>
-								<div class="controls">
-									<div class="fileupload fileupload-new" data-provides="fileupload">
-										<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-											<img src="${config.resourcePath!}/media/image/AAAAAA&amp;text=no+image" alt="" />
-										</div>
-										<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-										<div>
-											<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
-											<span class="fileupload-exists">修改图片</span>
-											<input type="file" class="default" /></span>
-											<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
-										</div>
-									</div>
-									<span class="label label-important">注意!</span>
-									<span>
-										图像的缩略图,支持Chrome,Opera,Safari 和 Internet Explorer 10以上的浏览器
-									</span>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label">产品组图:</label>
-								<div class="controls">
-									<div class="fileupload fileupload-new" data-provides="fileupload">
-										<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-											<img src="${config.resourcePath!}/media/image/AAAAAA&amp;text=no+image" alt="" />
-										</div>
-										<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-										<div>
-											<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
-											<span class="fileupload-exists">修改图片</span>
-											<input type="file" class="default" /></span>
-											<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
-											<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">继续添加</a>
-										</div>
-									</div>
-									<span class="label label-important">注意!</span>
-									<span>
-										图像的缩略图,支持Chrome,Opera,Safari 和 Internet Explorer 10以上的浏览器,组图最多支持7张
-									</span>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label">产品描述:</label>
-								<div class="controls">
-									<textarea class="span12 wysihtml5 m-wrap" rows="6"></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">SEO关键字:</label>
 								<div class="controls">
-									<textarea class="span12 m-wrap tooltips" data-trigger="hover" data-original-title="SEO关键字,用于搜索引擎抓取网站的关键描述." rows="6"></textarea>
+									<textarea class="span9 m-wrap tooltips" data-trigger="hover" data-original-title="SEO关键字,用于搜索引擎抓取网站的关键描述." rows="6" id="keywords" name="keywords">${classify.keywords!}</textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">SEO描述:</label>
 								<div class="controls">
-									<textarea class="span6 m-wrap tooltips" data-trigger="hover" data-original-title="SEO网站描述,用于搜索引擎抓取网站的关键描述." rows="3"></textarea>
+									<textarea class="span9 m-wrap tooltips" data-trigger="hover" data-original-title="SEO网站描述,用于搜索引擎抓取网站的关键描述." rows="6" id="description" name="description">${classify.description!}</textarea>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">规格:</label>
+								<label class="control-label">备注:</label>
 								<div class="controls">
-									<select data-placeholder="请选择您的产品规格" class="chosen span6" multiple="multiple" tabindex="6">
-										<option>规格1</option>
-										<option>规格2</option>
-										<option>规格3</option>
-										<option>规格4</option>
-										<option>规格5</option>
-										<option>规格6</option>
-										<option>规格7</option>
-									</select>
+									<textarea class="span9  m-wrap" rows="6" id="info" name="info">${classify.info!}</textarea>
 								</div>
 							</div>
-							
-							<!-- <div class="control-group">
-								<label class="control-label">属性:</label>
-								<div class="controls">
-									<select name="" id="select2_sample5" class="span6 select2">
-										<option value="1">阿玛尼</option>
-										<option value="2">奥迪</option>
-										<option value="3">哈哈</option>
-									</select>
-								</div>
-							</div> -->
 							<div class="form-actions">
 								<button type="submit" class="btn blue">保存</button>
-								<button type="button" class="btn">取消</button>                            
+								<a href="${config.contextPath!}/admin/product/classifyList.htm" class="btn">取消</a>                            
 							</div>					
 						</form>
 					</div>

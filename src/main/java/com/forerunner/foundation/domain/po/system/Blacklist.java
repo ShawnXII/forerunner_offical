@@ -1,5 +1,10 @@
 package com.forerunner.foundation.domain.po.system;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.forerunner.foundation.domain.po.BaseEntity;
 
 /**
@@ -7,13 +12,23 @@ import com.forerunner.foundation.domain.po.BaseEntity;
  * @author wx
  *
  */
-public class Blacklist extends BaseEntity{
+public class Blacklist extends BaseEntity<Long>{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4467034881534256114L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private Long id;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	private String ip;
 	
 	private String info;

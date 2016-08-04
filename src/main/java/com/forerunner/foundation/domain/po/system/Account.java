@@ -3,6 +3,9 @@ package com.forerunner.foundation.domain.po.system;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -10,18 +13,30 @@ import com.forerunner.foundation.domain.po.BaseEntity;
 /**
  * 用户帐号
  * 存储用户帐号的基本信息
- * 用户的详细信息存放#{com.forerunner.foundation.domain.po.system.PersonalInfo}
+ * 用户的详细信息存放
  * @author Administrator
  *
  */
 @Entity
 @Table(name="sys_account")
-public class Account extends BaseEntity{
+public class Account extends BaseEntity<Long>{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1268496906426527828L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private Long id;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	//呢称
 	private String nickname;
 	//用户名
@@ -168,7 +183,7 @@ public class Account extends BaseEntity{
 	}
 
 	public void setPersonal(PersonalInfo personal) {
-		this.personal = personal;
+		this.personal = personal;
 	}
-	
+
 }

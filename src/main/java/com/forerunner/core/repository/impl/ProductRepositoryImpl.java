@@ -27,7 +27,12 @@ public class ProductRepositoryImpl {
 
 	@PersistenceContext
 	private EntityManager em;
-
+	
+	/**
+	 * 获取搜索产品数量
+	 * @param product
+	 * @return
+	 */
 	public Long searchCount(Product product) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(
@@ -93,7 +98,13 @@ public class ProductRepositoryImpl {
 		}
 		return CommUtil.null2Long(query.getSingleResult());
 	}
-
+	/**
+	 * 搜索产品
+	 * @param product
+	 * @param pageIndex
+	 * @param pageSize
+	 * @return
+	 */
 	public List<Product> searchProduct(Product product, Integer pageIndex, Integer pageSize) {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 		// <产品名称,产品副标题,产品描述> 产品品牌<等于> 产品价格(区间) 创建时间(大于等于 小于等于) 状态 hashCode 图片搜索

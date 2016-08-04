@@ -19,16 +19,11 @@ import javax.persistence.TemporalType;
  * @param <ID>
  */
 @MappedSuperclass
-public class BaseEntity extends AbstractEntity<Long> {
+public abstract class BaseEntity<ID extends java.io.Serializable> extends AbstractEntity<ID> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1702982221535657353L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private Long id;
 	
 	//创建时间 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -100,17 +95,4 @@ public class BaseEntity extends AbstractEntity<Long> {
 	public void setDeleteStatus(Boolean deleteStatus) {
 		this.deleteStatus = deleteStatus;
 	}
-
-	@Override
-	public void setId(Long id) {
-		this.id=id;
-	}
-
-	@Override
-	public Long getId() {
-		return id;
-	}
-	
-	
-
 }

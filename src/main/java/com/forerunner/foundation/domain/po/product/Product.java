@@ -7,6 +7,9 @@ import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -23,12 +26,16 @@ import com.google.common.collect.Lists;
  */
 @Entity
 @Table(name = "business_produce")
-public class Product extends BaseEntity {
+public class Product extends BaseEntity<Long> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6567362577113039980L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private Long id;
 	// 产品名称
 	@Column(name = "product_name")
 	private String productName;
@@ -376,6 +383,17 @@ public class Product extends BaseEntity {
 				+ ", brandId=" + brandId + ", statusStr=" + statusStr + ", specList=" + specList + ", classify="
 				+ classify + ", brand=" + brand + ", photoList=" + photoList + ", maxPrice=" + maxPrice + ", minPrice="
 				+ minPrice + ", startDate=" + startDate + ", endDate=" + endDate + "]";
+	}
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	@Override
+	public void setId(Long id) {
+		this.id=id;
 	}
 	
 	
