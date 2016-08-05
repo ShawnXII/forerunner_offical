@@ -75,21 +75,24 @@ public class IdGenerate {
 	}
 
 	public static void main(String[] args) {
-		final IdGenerate generate = new IdGenerate(15);
+		for(int i=1;i<=1;i++){
+			System.out.println( i);
+		}
+		/*final IdGenerate generate = new IdGenerate(15);
 		ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 		for (int i = 0; i < 100; i++) {
 			final int index = i;
-			/*try {
+			try {
 				Thread.sleep(index * 1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}*/
+			}
 			cachedThreadPool.execute(new Runnable() {
 				public void run() {
 					System.out.println( (int) ((Math.random() * 16)));
 				}
 			});
-		}
+		}*/
 		
 		
 	}

@@ -1,5 +1,7 @@
 package com.forerunner.foundation.domain.po.system;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,6 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.forerunner.foundation.domain.po.BaseEntity;
+import com.google.common.collect.Lists;
 
 @Entity
 @Table(name="sys_menu")
@@ -31,6 +34,12 @@ public class Menu extends BaseEntity<Long>{
 	
 	@Column(name="target")
 	private String target;
+	/**
+	 * 级别 最多支持到99级
+	 */
+	@Column(name="level",length=2)
+	private Float level;
+	
 	
 	@Column(name="title")
 	private String title;
@@ -49,7 +58,16 @@ public class Menu extends BaseEntity<Long>{
 	
 	@Transient
 	private Menu parent;
+	
+	@Transient
+	private List<Menu> childs=Lists.newArrayList();
 
+	public List<Menu> getChilds() {
+		return childs;
+	}
+	public void setChilds(List<Menu> childs) {
+		this.childs = childs;
+	}
 	public String getUrl() {
 		return url;
 	}
@@ -110,6 +128,19 @@ public class Menu extends BaseEntity<Long>{
 	}
 	public void setParentId(Long parentId) {
 		this.parentId = parentId;
+	}
+	
+	public Float getLevel() {
+		return level;
+	}
+	public void setLevel(Float level) {
+		this.level = level;
+	}
+	@Override
+	public String toString() {
+		return "Menu [id=" + id + ", url=" + url + ", target=" + target + ", level=" + level + ", title=" + title
+				+ ", info=" + info + ", type=" + type + ", icon=" + icon + ", parentId=" + parentId + ", parent="
+				+ parent + "]";
 	}
 	
 	
