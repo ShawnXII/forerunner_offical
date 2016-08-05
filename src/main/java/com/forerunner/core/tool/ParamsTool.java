@@ -12,6 +12,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -29,21 +30,17 @@ public class ParamsTool {
 			obj = clazz.newInstance();
 			PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
 			for (PropertyDescriptor pd : propertyDescriptors) {
-				String propertyName = pd.getName();
-				
+				String propertyName = pd.getName();		
 				if (map.containsKey(propertyName)) {
 					Object value = map.get(propertyName);
 					if(value==null){
 						continue;
 					}
-					Object[] args = new Object[1];
-					args[0] = value;	
 					try {
-						pd.getWriteMethod().invoke(obj, args);
-					} catch (IllegalArgumentException |InvocationTargetException e) {
-						logger.error(e);
-						System.out.println(propertyName+":"+e.getMessage());
-					} 
+						BeanUtils.setProperty(obj, propertyName, value);
+					} catch (InvocationTargetException e) {
+					
+					}	
 				}
 			}
 		} catch (IntrospectionException | InstantiationException | IllegalAccessException e) {
@@ -51,6 +48,10 @@ public class ParamsTool {
 		}
 		return obj;
 	}
+	
+	/*private static void invoke(Method method){
+		
+	}*/
 
 	public static Map<String, String> WebRequestToMap(HttpServletRequest request) {
 		Map<String, String> result = Maps.newHashMap();

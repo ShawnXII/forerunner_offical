@@ -26,7 +26,7 @@ public class Classify extends BaseEntity<Long> {
 	private static final long serialVersionUID = 912857254908437320L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
 	private Long id;
 	

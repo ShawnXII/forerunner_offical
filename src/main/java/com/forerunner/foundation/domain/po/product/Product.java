@@ -33,7 +33,7 @@ public class Product extends BaseEntity<Long> {
 	 */
 	private static final long serialVersionUID = 6567362577113039980L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
 	private Long id;
 	// 产品名称

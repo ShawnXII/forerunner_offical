@@ -106,7 +106,13 @@
 														</form>
 														<a href="javascript:void(0);" onclick="document.getElementById('${classify.id!}_editForm').submit();"><i class="icon-trash"></i>修改</a>	
 													</li>
-													<li><a href="#"><i class="icon-remove"></i> 删除</a></li>
+													<li>
+														
+														<form action="${config.contextPath!}/admin/product/classify/delete.htm" method="POST" id="${classify.id!}_deleteForm">
+															<input name="id" id="id" value="${classify.id!}" type="hidden"/>	
+														</form>
+														<a href="javascript:void(0);" onclick="document.getElementById('${classify.id!}_deleteForm').submit();"><i class="icon-remove"></i> 删除</a>
+													</li>
 													<li class="divider"></li>
 													<li><a href="#"><i class="i"></i>查看</a></li>
 												</ul>
@@ -133,17 +139,17 @@
 			</span>
 		</div>
 	</div>
-	<div id="system-config-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="system-config-label" aria-hidden="true">
+	<a id="popUpWindow" class=" btn yellow" data-toggle="modal" href="#static" style="display:none;">View Demo</a>
+	<div id="static" class="modal hide fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-			<h3 id="system-config-label">系统参数新增</h3>
+			<h3 id="system-config-label">操作提示</h3>
 		</div>
 		<div class="modal-body">
-			<p>系统参数设置</p>
+			<p>${success!''}</p>
 		</div>
 		<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-			<button class="btn yellow">Save</button>
+			<button type="button" data-dismiss="modal" class="btn">确定</button>
 		</div>
 	</div>
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
@@ -178,6 +184,11 @@
 		   // initiate layout and plugins
 		   App.init();
 		   TableManaged.init();
+		   var success='${success}';
+		   if(success!=null&&success.length>0){
+			   //tanchu
+			   $('#popUpWindow').click();
+		   }
 		});
 	</script>
 

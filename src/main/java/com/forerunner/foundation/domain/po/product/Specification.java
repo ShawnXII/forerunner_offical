@@ -22,7 +22,7 @@ public class Specification extends AbstractEntity<Long>{
 	private static final long serialVersionUID = -3390513575953925237L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	//规格名称
 	@Column(name="spec_name")

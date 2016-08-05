@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.forerunner.core.service.system.AccountService;
+import com.forerunner.core.service.system.ConfigService;
+import com.forerunner.core.service.system.MenuService;
 import com.forerunner.core.sso.LoginUtil;
 import com.forerunner.core.tool.CommUtil;
 import com.forerunner.core.web.resource.CommonParams;
@@ -23,6 +25,11 @@ public class AdminIndexController extends BaseController{
 	@Autowired
 	private AccountService accountService;
 	
+	@Autowired
+	private ConfigService configService;
+	@Autowired
+	private MenuService menuService;
+
 	@RequestMapping(value={"/","/index.htm"})
 	public ModelAndView toIndex(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView view=new ModelAndView();

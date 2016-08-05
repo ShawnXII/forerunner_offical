@@ -26,8 +26,21 @@ public class SystemController extends BaseController{
 	public ModelAndView toIndex(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView view=new ModelAndView();
 		view.setViewName("/admin/system/setUp");
-		CommonParams.loadParams(view,"系统设置")	;
+		CommonParams.loadParams(view,"系统设置");
 		return view;
+	}
+	/**
+	 * 系统菜单列表
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value="/menuList.htm")
+	public ModelAndView toMenuView(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView view=new ModelAndView();
+		view.setViewName("/admin/system/menuList");
+		CommonParams.loadParams(view,"系统菜单列表");
+		return null; 
 	}
 	
 }

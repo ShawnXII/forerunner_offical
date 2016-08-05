@@ -30,6 +30,9 @@
 
 	<context:component-scan base-package="com.forerunner" />
 	<bean class="com.forerunner.core.tool.SpringUtils"></bean>
+<!-- 	<bean class="com.forerunner.core.service.system">
+		<property name=""></property>
+	</bean> -->
 	<!-- jpa配置 -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

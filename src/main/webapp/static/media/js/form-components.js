@@ -4,11 +4,12 @@ var FormComponents = function () {
         if (!jQuery().wysihtml5) {
             return;
         }
-
-        if ($('.wysihtml5').size() > 0) {
-            $('.wysihtml5').wysihtml5({
-                "stylesheets": ["assets/plugins/bootstrap-wysihtml5/wysiwyg-color.css"]
-            });
+        if($('.wysihtml5-toolbar').size()==0){
+	        if ($('.wysihtml5').size() > 0) {
+	            $('.wysihtml5').wysihtml5({
+	                
+	            });
+	        }
         }
     }
 
@@ -16,12 +17,13 @@ var FormComponents = function () {
         if (!jQuery().wysihtml5) {
             return;
         }
-
-        if ($('.wysihtml5').size() > 0) {
-            $('.wysihtml5').wysihtml5({
-                "stylesheets": ["assets/plugins/bootstrap-wysihtml5/wysiwyg-color.css"]
-            });
-        }
+        if($('.wysihtml5-toolbar').size()==0){
+        	if ($('.wysihtml5').size() > 0) {
+                $('.wysihtml5').wysihtml5({
+                    
+                });
+            }
+        }       
     }
 
     var handleToggleButtons = function () {
@@ -332,10 +334,9 @@ var FormComponents = function () {
         });
 
         function format(state) {
-            if (!state.id) return state.text; // optgroup
-            return "<img class='flag' src='assets/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
+        	 return state.text;
         }
-        $("#select2_sample4").select2({
+        $(".search-select").select2({
             allowClear: true,
             formatResult: format,
             formatSelection: format,
@@ -344,10 +345,10 @@ var FormComponents = function () {
             }
         });
 
-        $("#select2_sample5").select2({
+      /*  $("#select2_sample5").select2({
             tags: ["red", "green", "blue", "yellow", "pink"]
         });
-
+*/
 
         function movieFormatResult(movie) {
             var markup = "<table class='movie-result'><tr>";

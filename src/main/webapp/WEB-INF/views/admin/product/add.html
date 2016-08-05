@@ -79,15 +79,15 @@
 					<div class="portlet-body form">
 						<form action="#" class="form-horizontal">
 							<div class="control-group">
-								<label class="control-label"><span style="color:red">*</span>产品名称:</label>
+								<label class="control-label">产品名称:</label>
 								<div class="controls">
-									<input type="text" class="span6 m-wrap tooltips" data-trigger="hover" data-original-title="必填,支持中文、字母、数字、“-”“_”的组合，4-20个字符." id="productName" name="productName" />
+									<input type="text" class="span9 m-wrap tooltips" data-trigger="hover" data-original-title="必填" id="productName" name="productName" />
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">副标题:</label>
 								<div class="controls">
-									<input type="text" class="span6 m-wrap tooltips" data-trigger="hover" data-original-title="支持中文、字母、数字、“-”“_”的组合，4-20个字符." id="subhead" name="subhead" />
+									<input type="text" class="span9 m-wrap tooltips" data-trigger="hover" data-original-title="用来简单的描述该产品或产品优惠" id="subhead" name="subhead" />
 								</div>
 							</div>
 							<div class="control-group">
@@ -95,7 +95,6 @@
 								<div class="controls">
 									<div class="input-prepend input-append">
 										<span class="add-on">&yen;</span><input class="m-wrap " type="text" id="storePrice" name="storePrice" /><span class="add-on"></span>
-										<!--  $("#mask_number").inputmask({ "mask": "9", "repeat": 10, "greedy": false }); -->
 									</div>
 								</div>
 							</div>
@@ -104,31 +103,30 @@
 								<div class="controls">
 									<div class="input-prepend input-append">
 										<span class="add-on">&yen;</span><input class="m-wrap " type="text" id="storePrice" name="storePrice" /><span class="add-on"></span>
-										<!--  $("#mask_number").inputmask({ "mask": "9", "repeat": 10, "greedy": false }); -->
 									</div>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">品牌:</label>
 								<div class="controls">
-									<select name="" id="select2_sample4" class="span6 select2">
-										<option value="1">阿玛尼</option>
-										<option value="2">奥迪</option>
-										<option value="3">哈哈</option>
+									<select name="brandId" id="brandId" class="span9 select2 search-select">
+										<!--:if(!isEmpty(brandList)){
+											for(brand in brandList){-->
+											<option value="${brand.id}">${brand.name}</option>
+										<!--:}
+										} -->
 									</select>
-									<!-- <div class="input-prepend input-append">
-										<span class="add-on">&yen;</span><input class="m-wrap " type="text" id="storePrice" name="storePrice" />
-										 $("#mask_number").inputmask({ "mask": "9", "repeat": 10, "greedy": false });
-									</div> -->
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">分类:</label>
 								<div class="controls">
-									<select name="" id="select2_sample5" class="span6 select2">
-										<option value="1">阿玛尼</option>
-										<option value="2">奥迪</option>
-										<option value="3">哈哈</option>
+									<select name="classifyId" id="classifyId" class="span9 select2 search-select">
+										<!--:if(!isEmpty(classifyList)){
+											for(classify in classifyList){-->
+											<option value="${classify.id}">${classify.title}</option>
+										<!--:}
+										} -->
 									</select>
 								</div>
 							</div>
@@ -178,46 +176,33 @@
 							<div class="control-group">
 								<label class="control-label">产品描述:</label>
 								<div class="controls">
-									<textarea class="span12 wysihtml5 m-wrap" rows="6"></textarea>
+									<textarea class="span9 wysihtml5 m-wrap" rows="6"></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">SEO关键字:</label>
 								<div class="controls">
-									<textarea class="span12 m-wrap tooltips" data-trigger="hover" data-original-title="SEO关键字,用于搜索引擎抓取网站的关键描述." rows="6"></textarea>
+									<textarea class="span9 m-wrap tooltips" data-trigger="hover" data-original-title="SEO关键字,用于搜索引擎抓取网站的关键描述." rows="6"></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">SEO描述:</label>
 								<div class="controls">
-									<textarea class="span6 m-wrap tooltips" data-trigger="hover" data-original-title="SEO网站描述,用于搜索引擎抓取网站的关键描述." rows="3"></textarea>
+									<textarea class="span9 m-wrap tooltips" data-trigger="hover" data-original-title="SEO网站描述,用于搜索引擎抓取网站的关键描述." rows="6"></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">规格:</label>
 								<div class="controls">
-									<select data-placeholder="请选择您的产品规格" class="chosen span6" multiple="multiple" tabindex="6">
-										<option>规格1</option>
-										<option>规格2</option>
-										<option>规格3</option>
-										<option>规格4</option>
-										<option>规格5</option>
-										<option>规格6</option>
-										<option>规格7</option>
+									<select data-placeholder="请选择您的产品规格" class="chosen span9" multiple="multiple" tabindex="3">
+										<!--:if(!isEmpty(propertyList)){
+											for(property in propertyList){-->
+											<option value="${property.id}">${property.propertyName}</option>
+										<!--:}
+										} -->
 									</select>
 								</div>
 							</div>
-							
-							<!-- <div class="control-group">
-								<label class="control-label">属性:</label>
-								<div class="controls">
-									<select name="" id="select2_sample5" class="span6 select2">
-										<option value="1">阿玛尼</option>
-										<option value="2">奥迪</option>
-										<option value="3">哈哈</option>
-									</select>
-								</div>
-							</div> -->
 							<div class="form-actions">
 								<button type="submit" class="btn blue">保存</button>
 								<button type="button" class="btn">取消</button>                            

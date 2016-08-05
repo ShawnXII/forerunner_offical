@@ -23,7 +23,7 @@ public class Brand extends BaseEntity<Long>{
 	 */
 	private static final long serialVersionUID = -7907195557517358733L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
 	private Long id;
 	

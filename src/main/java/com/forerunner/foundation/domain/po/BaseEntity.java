@@ -24,6 +24,7 @@ public abstract class BaseEntity<ID extends java.io.Serializable> extends Abstra
 	 * 
 	 */
 	private static final long serialVersionUID = 1702982221535657353L;
+
 	
 	//创建时间 
 	@Temporal(TemporalType.TIMESTAMP)

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="utf-8" />
+	<title>${title!}</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="${config.description!}" name="description" />
+	<meta content="${config.author!}" name="author" />
+	<meta content="${config.keyWords!}" name="keyWords" />
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link href="${config.resourcePath!}/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/default.css" rel="stylesheet" type="text/css"/>
+	<link href="${config.resourcePath!}/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+	<!-- END GLOBAL MANDATORY STYLES -->
+	<!-- BEGIN PAGE LEVEL STYLES -->
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/bootstrap-fileupload.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/jquery.gritter.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/chosen.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/select2_metro.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/jquery.tagsinput.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/clockface.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/bootstrap-wysihtml5.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/datepicker.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/timepicker.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/colorpicker.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/bootstrap-toggle-buttons.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/daterangepicker.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="${config.resourcePath!}/media/css/multi-select-metro.css" />
+	<link href="${config.resourcePath!}/media/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
+	<!-- END PAGE LEVEL STYLES -->
+	<link rel="shortcut icon" href="${config.resourcePath!}/media/image/favicon.ico" />
+</head>
+<body class="page-header-fixed">
+	<!-- BEGIN HEADER -->
+	<!--:include("/WEB-INF/views/admin/common/header.html"){}  -->
+	<div class="page-container row-fluid">
+	<!--:include("/WEB-INF/views/admin/common/sidebar-menu.html"){}  -->
+	<div class="page-content">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="color-panel hidden-phone">
+						<div class="color-mode-icons icon-color"></div>
+						<div class="color-mode-icons icon-color-close"></div>
+						<div class="color-mode">
+							<p>THEME COLOR</p>
+							
+						</div> 
+						
+					</div>
+					<h3 class="page-title">
+						系统设置 <small>系统参数</small>
+					</h3>
+					<ul class="breadcrumb">
+					<li>
+						<i class="icon-home"></i>
+						<a href="index.html">主页</a> 
+						<i class="icon-angle-right"></i>
+					</li>
+					<li>
+						<a href="#">系统设置</a>
+						<i class="icon-angle-right"></i>
+					</li>
+					<li><a href="#">系统参数</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="portlet-body form">
+						<form action="${config.contextPath!}/admin/product/property/add.htm"  method="POST" class="form-horizontal">
+							<input id="id" name="id" value="${property.id!}" type="hidden"/>
+							<div class="control-group">
+								<label class="control-label">规格名称:</label>
+								<div class="controls">
+									<input type="text" class="span9 m-wrap tooltips" data-trigger="hover" data-original-title="必填,支持中文、字母、数字、“-”“_”的组合，4-20个字符." id="propertyName" name="propertyName" value="${property.propertyName!}"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">权重:</label>
+								<div class="controls">	
+									<input class="span9 m-wrap tooltips" type="text" data-trigger="hover" data-original-title="值越大,排序越前." id="sort" name="sort" value="${property.sort!}"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">备注:</label>
+								<div class="controls">
+									<textarea class="span9  m-wrap" rows="6" id="info" name="info">${property.info!}</textarea>
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn blue">保存</button>
+								<a href="${config.contextPath!}/admin/product/propertyList.htm" class="btn">取消</a>                            
+							</div>					
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="footer">
+		<div class="footer-inner">
+			${config.copyright!}
+		</div>
+		<div class="footer-tools">
+			<span class="go-top">
+				<i class="icon-angle-up"></i>
+			</span>
+		</div>
+	</div>
+	<div id="system-config-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="system-config-label" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			<h3 id="system-config-label">系统参数新增</h3>
+		</div>
+		<div class="modal-body">
+			<p>系统参数设置</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			<button class="btn yellow">Save</button>
+		</div>
+	</div>
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	<!-- BEGIN CORE PLUGINS -->
+	<script src="${config.resourcePath!}/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<script src="${config.resourcePath!}/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="${config.resourcePath!}/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	<script src="${config.resourcePath!}/media/js/bootstrap.min.js" type="text/javascript"></script>
+	<!--[if lt IE 9]>
+	<script src="${config.resourcePath!}/media/js/excanvas.min.js"></script>
+	<script src="${config.resourcePath!}/media/js/respond.min.js"></script>  
+	<![endif]-->   
+	<script src="${config.resourcePath!}/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="${config.resourcePath!}/media/js/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="${config.resourcePath!}/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="${config.resourcePath!}/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+	<!-- END CORE PLUGINS -->
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/ckeditor.js"></script>  
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/bootstrap-fileupload.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/chosen.jquery.min.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/select2.min.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/wysihtml5-0.3.0.js"></script> 
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/bootstrap-wysihtml5.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/jquery.tagsinput.min.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/jquery.toggle.buttons.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/bootstrap-datepicker.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/bootstrap-datetimepicker.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/clockface.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/date.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/daterangepicker.js"></script> 
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/bootstrap-colorpicker.js"></script>  
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/bootstrap-timepicker.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/jquery.inputmask.bundle.min.js"></script>   
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/jquery.input-ip-address-control-1.0.min.js"></script>
+
+	<script type="text/javascript" src="${config.resourcePath!}/media/js/jquery.multi-select.js"></script>   
+
+	<script src="${config.resourcePath!}/media/js/bootstrap-modal.js" type="text/javascript" ></script>
+
+	<script src="${config.resourcePath!}/media/js/bootstrap-modalmanager.js" type="text/javascript" ></script> 
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script src="${config.resourcePath!}/media/js/app.js"></script>
+	<script src="${config.resourcePath!}/media/js/form-components.js"></script>         
+	<!-- END PAGE LEVEL SCRIPTS -->
+	<script>
+		jQuery(document).ready(function() {       
+		   // initiate layout and plugins
+		   App.init();
+		   FormComponents.init();
+		});
+	</script>
+
+	<!-- END JAVASCRIPTS -->
+</body>
+</html>

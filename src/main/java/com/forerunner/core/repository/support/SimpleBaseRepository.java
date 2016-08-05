@@ -35,6 +35,7 @@ import com.forerunner.core.search.SearchOperator;
 import com.forerunner.core.search.Searchable;
 import com.forerunner.core.search.annotation.QueryJoin;
 import com.forerunner.core.search.callback.SearchCallback;
+import com.forerunner.core.tool.IdGenerate;
 import com.forerunner.foundation.domain.po.AbstractEntity;
 import com.forerunner.foundation.domain.po.LogicDeleteable;
 import com.google.common.collect.Lists;
@@ -152,7 +153,22 @@ public class SimpleBaseRepository<M extends AbstractEntity<ID>, ID extends java.
 		M m = findOne(id);
 		delete(m);
 	}
-
+	/*@Override
+	public M save(final M m){
+		return null;
+	}*/
+	@SuppressWarnings("unchecked")
+	@Transactional
+	@Override
+	public <S extends M> S save(S entity) {		
+		if(entityInformation.isNew(entity)){			
+			IdGenerate idGenerate=new IdGenerate((int)(Math.random() * 16));
+			entity.setId((ID) idGenerate.generateId());
+			return em.merge(entity);
+		}else{
+			return em.merge(entity);
+		}
+	}
 	/**
 	 * 删除实体
 	 *

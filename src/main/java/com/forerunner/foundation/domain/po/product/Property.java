@@ -21,7 +21,7 @@ public class Property extends AbstractEntity<Long>{
 	 */
 	private static final long serialVersionUID = -5124634695604576318L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
 	private Long id;
 	
